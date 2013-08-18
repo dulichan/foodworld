@@ -1,0 +1,689 @@
+a:12:{s:8:"encoding";s:5:"UTF-8";s:5:"title";s:18:"osCommerce Add-Ons";s:4:"link";s:25:"http://www.oscommerce.com";s:11:"description";s:29:"osCommerce, Sell With Emotion";s:8:"language";s:2:"en";s:9:"copyright";s:29:"Copyright (c) 2012 osCommerce";s:14:"managingEditor";s:19:"hpdl@oscommerce.com";s:11:"image_title";s:10:"osCommerce";s:9:"image_url";s:53:"http://www.oscommerce.com/images/oscommerce_88x31.gif";s:10:"image_link";s:25:"http://www.oscommerce.com";s:5:"items";a:5:{i:0;a:4:{s:5:"title";s:11:"Postfinance";s:4:"link";s:38:"http://addons.oscommerce.com/info/8877";s:11:"description";s:124:"osCommerce PostFinance E-Payment Module<br />
+<br />
+Please look inside the docs folder for more detailed information.<br />";s:7:"pubDate";s:31:"Wed, 14 Aug 2013 10:32:47 +0200";}i:1;a:4:{s:5:"title";s:18:"Red Dark Dashboard";s:4:"link";s:38:"http://addons.oscommerce.com/info/8876";s:11:"description";s:836:"Free osCommerce 2.3.3 Admin Template Dark Red Style<br />
+<br />
+Tested on Firefox and Chrome not tested on Opera and IE but I think it will work on both browsers.<br />
+<br />
+How To Install?<br />
+<br />
+First, Back up your store!<br />
+<br />
+Second, rename configure.php in catalog &gt; admin &gt; includes in your new admin template.<br />
+<br />
+Third, rename stylesheet.css in catalog &gt; admin &gt; includes in your admin store template.<br />
+<br />
+Fourth, rename oscommerce.png in catalog &gt; admin &gt; images in your new admin template.<br />
+<br />
+fifth, copy all admin files from your new admin template to your existing store.<br />
+<br />
+Refresh your store then go to admin control panel.<br />
+<br />
+Finish.<br />
+<br />
+Good Luck<br />
+<br />
+Regards,<br />
+<br />
+<br />
+Dian Santoso<br />
+www.eyefuldesign.info";s:7:"pubDate";s:31:"Wed, 14 Aug 2013 10:29:33 +0200";}i:2;a:4:{s:5:"title";s:8:"Savebill";s:4:"link";s:38:"http://addons.oscommerce.com/info/8875";s:11:"description";s:35112:":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<br />
+	SAFEBILL MODULE V1.0 FOR osCommerce Online Merchant v2.2 RC2a Released <br />
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::	<br />
+	Autor:	info@salesconquest.com<br />
+	Modified: Fabrizio S.				<br />
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<br />
+<br />
+<br />
+<br />
+######### G E N E R A L   I N F O R M A T I O N   ###########<br />
+<br />
+This module was created and tested for osCommerce Online Merchant v2.2 RC2a Released<br />
+<br />
+IMPORTANT: Please backup your database and files before <br />
+           making any changes!<br />
+<br />
+All needed files are included (also the files which have<br />
+to be modified)<br />
+<br />
+Tested on the following server config:<br />
+PHP Version 5.2.9<br />
+Apache/2.2.3 (CentOS) <br />
+Mysql 5.1.32<br />
+SOAP library enabled<br />
+<br />
+############# C H A N G E  L O G  #######################<br />
+VERSION 1.1:<br />
+------------<br />
+- Correct the errors in the installationa package<br />
+- Add the safebill.php file in admin/includes/classes/<br />
+- Add the missing lines in orders.php file in admin/ rep.<br />
+<br />
+<br />
+<br />
+<br />
+######            I N S T A L L A T I O N              ########<br />
+<br />
+<br />
+RECOMANDATION: PLEASE BACKUP YOUR DATABASE BEFORE INSTALLING THE MODULE<br />
+The install script add 2 new tables in the database and alter the tables orders and customers adding new fields.<br />
+<br />
+-----------------------------------------------------------         <br />
+  1) Information, should I need this module ?<br />
+-----------------------------------------------------------<br />
+<br />
+  This module is available and should be installed only for Swiss merchant and swiss marcket.<br />
+  To make it works, an account to Safebill is necessary.<br />
+  If you need more information about this payment method, please contact Safebill at<br />
+  support@safebill.ch<br />
+<br />
+-----------------------------------------------------------         <br />
+  2) SHOP: New files<br />
+-----------------------------------------------------------<br />
+<br />
+  Copy the file /catalog/includes/modules/payment/safebillosc.php<br />
+  into your directory: <br />
+  YOUR_SHOP_ROOT_/includes/modules/payment/<br />
+  <br />
+  Copy the file /catalog/includes/languages/english/modules/payment/safebillosc.php<br />
+  into your directory: <br />
+  YOUR_SHOP_ROOT_/includes/modules/payment/<br />
+  <br />
+  Copy the repository /catalog/ext/modules/payment/safebillosc<br />
+  into your directory: <br />
+  YOUR_SHOP_ROOT_/includes/ext/modules/payment/<br />
+  <br />
+  Copy the repository /catalog/images/icons/question.png and /catalog/images/icons/sb_logo.png.png<br />
+  into your directory: <br />
+  YOUR_SHOP_ROOT_/images/icons/<br />
+  <br />
+  Copy the file /catalog/admin/includes/classes/safebill.php<br />
+  into your directory: <br />
+  YOUR_SHOP_ROOT_/admin/includes/classes<br />
+<br />
+-----------------------------------------------------------         <br />
+  3) SHOP: 'general.php'<br />
+-----------------------------------------------------------<br />
+Open the file &quot;/YOUR_SHOP_ROOT_/includes/functions/general.php&quot;.<br />
+<br />
+**************************************************************<br />
+  At the end of file add the followinf function:<br />
+**************************************************************<br />
+  <br />
+  //SAFEBILL<br />
+  function sb_get_safebill_order_info($order_id){<br />
+    //Get order info<br />
+    $sb_order_info_query = tep_db_query(&quot;SELECT sb_invoicing_costs,sb_partial_payment_fees, result FROM &quot; .TABLE_ORDERS. &quot; o, &quot; .TABLE_SAFEBILL_PAYMENT_RESULTS. &quot; pr WHERE o.orders_id=&quot; . (int)$order_id . &quot; AND o.orders_id=pr.orders_id&quot;);<br />
+    $sb_order_info = tep_db_fetch_array($sb_order_info_query);<br />
+    <br />
+    $sb_info = array('invoicing_costs' =&gt; $sb_order_info['sb_invoicing_costs'],<br />
+                     'partial_payment_fees' =&gt; $sb_order_info['sb_partial_payment_fees'],<br />
+                     'payment_result' =&gt; $sb_order_info['result']);<br />
+    <br />
+    //Get partial payment info<br />
+    $sb_payment_table_query = tep_db_query(&quot;SELECT * FROM &quot; .TABLE_SAFEBILL_PARTIAL_PAYMENT_TABLE. &quot; WHERE orders_id=&quot; . (int)$order_id . &quot; ORDER BY timestamp&quot;);<br />
+    if(tep_db_num_rows($sb_payment_table_query) &gt; 0){<br />
+      $p_table_total = 0;<br />
+      while($result = tep_db_fetch_array($sb_payment_table_query)){<br />
+        $p_table_total = $p_table_total + $result['amount'];<br />
+        $sb_info['partial_payment_table'][] = array('payment_date' =&gt; $result['date'],<br />
+                                                    'payment_amount' =&gt; $result['amount']);<br />
+      }<br />
+      <br />
+      $sb_info['partial_payment_table_total'] = $p_table_total;<br />
+    }<br />
+    <br />
+    //Get order total info<br />
+    $sb_order_total_query = tep_db_query(&quot;SELECT value FROM &quot; .TABLE_ORDERS_TOTAL. &quot; WHERE orders_id=&quot; .(int)$order_id. &quot; AND class='ot_total'&quot;);<br />
+    $sb_order_total = tep_db_fetch_array($sb_order_total_query);<br />
+    $sb_info['order_total'] = tep_round($sb_order_total['value'],2);<br />
+    $sb_info['order_total_with_safebill'] = $sb_info['order_total'] + $sb_info['invoicing_costs'] + $sb_info['partial_payment_fees'];<br />
+    <br />
+    return $sb_info;<br />
+  }<br />
+   //SAFEBILL<br />
+  <br />
+<br />
+<br />
+-----------------------------------------------------------         <br />
+  4) SHOP: order.php<br />
+-----------------------------------------------------------<br />
+  Open the file &quot;/YOUR_SHOP_ROOT_/includes/classes/order.php&quot;.<br />
+  <br />
+**************************************************************<br />
+  Search the following code (about line 53):<br />
+**************************************************************<br />
+  <br />
+  $this-&gt;info = array('currency' =&gt; $order['currency'],<br />
+                          'currency_value' =&gt; $order['currency_value'],<br />
+                          'payment_method' =&gt; $order['payment_method'],<br />
+                          'cc_type' =&gt; $order['cc_type'],<br />
+                          'cc_owner' =&gt; $order['cc_owner'],<br />
+                          'cc_number' =&gt; $order['cc_number'],<br />
+                          'cc_expires' =&gt; $order['cc_expires'],<br />
+                          'date_purchased' =&gt; $order['date_purchased'],<br />
+                          'orders_status' =&gt; $order_status['orders_status_name'],<br />
+                          'last_modified' =&gt; $order['last_modified'],<br />
+                          'total' =&gt; strip_tags($order_total['text']),<br />
+                          'shipping_method' =&gt; ((substr($shipping_method['title'], -1) == ':') ? substr(strip_tags($shipping_method['title']), 0, -1) : strip_tags($shipping_method['title'])));<br />
+						  <br />
+************************************************************** <br />
+  and replace it with the following code:<br />
+**************************************************************<br />
+  $this-&gt;info = array('currency' =&gt; $order['currency'],<br />
+                          'currency_value' =&gt; $order['currency_value'],<br />
+                          'payment_method' =&gt; $order['payment_method'],<br />
+                          'cc_type' =&gt; $order['cc_type'],<br />
+                          'cc_owner' =&gt; $order['cc_owner'],<br />
+                          'cc_number' =&gt; $order['cc_number'],<br />
+                          'cc_expires' =&gt; $order['cc_expires'],<br />
+                          'date_purchased' =&gt; $order['date_purchased'],<br />
+                          'orders_status' =&gt; $order_status['orders_status_name'],<br />
+                          'last_modified' =&gt; $order['last_modified'],<br />
+                          'total' =&gt; strip_tags($order_total['text']),<br />
+                          'shipping_method' =&gt; ((substr($shipping_method['title'], -1) == ':') ? substr(strip_tags($shipping_method['title']), 0, -1) : strip_tags($shipping_method['title'])));<br />
+//SAFEBILL<br />
+if(defined('MODULE_PAYMENT_SAFEBILLOSC_STATUS')){<br />
+  $this-&gt;info['safebill_info'] = sb_get_safebill_order_info($order_id);<br />
+}<br />
+//SAFEBILL<br />
+<br />
+-----------------------------------------------------------         <br />
+  5) SHOP: account_history_info.php <br />
+-----------------------------------------------------------<br />
+<br />
+Open the file &quot;/YOUR_SHOP_ROOT_/account_history_info.php&quot;.<br />
+<br />
+  Please make the following modifications:<br />
+<br />
+**************************************************************<br />
+  Search the following code (about line 320):<br />
+**************************************************************<br />
+<br />
+  &lt;?php<br />
+  for ($i=0, $n=sizeof($order-&gt;totals); $i&lt;$n; $i++) {<br />
+    echo '              &lt;tr&gt;' . &quot;n&quot; .<br />
+         '                &lt;td class=&quot;main&quot; align=&quot;right&quot; width=&quot;100%&quot;&gt;' . $order-&gt;totals[$i]['title'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+         '                &lt;td class=&quot;main&quot; align=&quot;right&quot;&gt;' . $order-&gt;totals[$i]['text'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+         '              &lt;/tr&gt;' . &quot;n&quot;;<br />
+  }<br />
+  <br />
+************************************************************** <br />
+  and replace it with the following code:<br />
+**************************************************************<br />
+  &lt;?php<br />
+  for ($i=0, $n=sizeof($order-&gt;totals); $i&lt;$n; $i++) {<br />
+    echo '              &lt;tr&gt;' . &quot;n&quot; .<br />
+         '                &lt;td class=&quot;main&quot; align=&quot;right&quot; width=&quot;100%&quot;&gt;' . $order-&gt;totals[$i]['title'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+         '                &lt;td class=&quot;main&quot; align=&quot;right&quot;&gt;' . $order-&gt;totals[$i]['text'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+         '              &lt;/tr&gt;' . &quot;n&quot;;<br />
+  }<br />
+  //SAFEBILL<br />
+    if(defined('MODULE_PAYMENT_SAFEBILLOSC_STATUS')){<br />
+      if(isset($order-&gt;info['safebill_info']['invoicing_costs']) &amp;&amp; $order-&gt;info['safebill_info']['invoicing_costs'] &gt; 0){<br />
+         echo '        &lt;tr&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . HEAD_SAFEBILL_INVOICE_FEE . '&lt;/td&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;info['safebill_info']['invoicing_costs'] . '&lt;/td&gt;'. &quot;n&quot; .<br />
+              '        &lt;/tr&gt;' . &quot;n&quot;;<br />
+      }<br />
+      if(isset($order-&gt;info['safebill_info']['partial_payment_fees']) &amp;&amp; $order-&gt;info['safebill_info']['partial_payment_fees'] &gt; 0){<br />
+         echo '        &lt;tr&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . HEAD_SAFEBILL_PARTIAL_PAYMENT_FEE . '&lt;/td&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;info['safebill_info']['partial_payment_fees'] . '&lt;/td&gt;'. &quot;n&quot; .<br />
+              '        &lt;/tr&gt;' . &quot;n&quot;;<br />
+      }<br />
+      if($order-&gt;info['safebill_info']['invoicing_costs'] &gt; 0 || $order-&gt;info['safebill_info']['partial_payment_fees'] &gt; 0){<br />
+        echo '        &lt;tr&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;&lt;strong&gt;' . HEAD_SAFEBILL_COMPLETE_TOTAL . '&lt;/strong&gt;&lt;/td&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;&lt;strong&gt;' . $currencies-&gt;format($order-&gt;info['safebill_info']['order_total_with_safebill'],true) . '&lt;/strong&gt;&lt;/td&gt;'. &quot;n&quot; .<br />
+              '        &lt;/tr&gt;' . &quot;n&quot;;<br />
+      }<br />
+    }<br />
+    //SAFEBILL<br />
+?&gt;<br />
+<br />
+-----------------------------------------------------------         <br />
+  6) SHOP: english.php <br />
+-----------------------------------------------------------<br />
+<br />
+Open the file &quot;/YOUR_SHOP_ROOT_/includes/languages/english.php&quot;.<br />
+<br />
+**************************************************************<br />
+  At the end of the file add:<br />
+**************************************************************<br />
+//SAFEBILL<br />
+define('ENTRY_SAFEBILL_MODALITY', 'Payment modality:');<br />
+define('HEAD_SAFEBILL_MODALITY_DEPOSIT', 'Deposit Nb');<br />
+define('HEAD_SAFEBILL_MODALITY_DATE', 'Payment date');<br />
+define('HEAD_SAFEBILL_MODALITY_AMOUNT', 'Amount');<br />
+define('HEAD_SAFEBILL_INVOICE_FEE','Invoicing fees:');<br />
+define('HEAD_SAFEBILL_PARTIAL_PAYMENT_FEE','Partial payment fees:');<br />
+define('HEAD_SAFEBILL_COMPLETE_TOTAL','Total final:');<br />
+<br />
+-----------------------------------------------------------         <br />
+  7) SHOP: database_tables.php <br />
+-----------------------------------------------------------<br />
+<br />
+//SAFEBILL<br />
+  define('TABLE_SAFEBILL_PARTIAL_PAYMENT_TABLE','sb_partial_payment_table');<br />
+  define('TABLE_SAFEBILL_PAYMENT_RESULTS','sb_payment_results');<br />
+<br />
+<br />
+<br />
+-----------------------------------------------------------         <br />
+  8) ADMIN: general.php<br />
+-----------------------------------------------------------<br />
+<br />
+Open the file &quot;/YOUR_SHOP_ROOT_/_YOUR_SHOP_ADMIN_/includes/functions/general.php&quot;.<br />
+<br />
+**************************************************************<br />
+  At the end of file add the followinf function:<br />
+**************************************************************<br />
+  <br />
+  //SAFEBILL<br />
+  function sb_get_safebill_order_info($order_id){<br />
+    //Get order info<br />
+    $sb_order_info_query = tep_db_query(&quot;SELECT sb_invoicing_costs,sb_partial_payment_fees, result FROM &quot; .TABLE_ORDERS. &quot; o, &quot; .TABLE_SAFEBILL_PAYMENT_RESULTS. &quot; pr WHERE o.orders_id=&quot; . (int)$order_id . &quot; AND o.orders_id=pr.orders_id&quot;);<br />
+    $sb_order_info = tep_db_fetch_array($sb_order_info_query);<br />
+    <br />
+    $sb_info = array('invoicing_costs' =&gt; $sb_order_info['sb_invoicing_costs'],<br />
+                     'partial_payment_fees' =&gt; $sb_order_info['sb_partial_payment_fees'],<br />
+                     'payment_result' =&gt; $sb_order_info['result']);<br />
+    <br />
+    //Get partial payment info<br />
+    $sb_payment_table_query = tep_db_query(&quot;SELECT * FROM &quot; .TABLE_SAFEBILL_PARTIAL_PAYMENT_TABLE. &quot; WHERE orders_id=&quot; . (int)$order_id . &quot; ORDER BY timestamp&quot;);<br />
+    if(tep_db_num_rows($sb_payment_table_query) &gt; 0){<br />
+      $p_table_total = 0;<br />
+      while($result = tep_db_fetch_array($sb_payment_table_query)){<br />
+        $p_table_total = $p_table_total + $result['amount'];<br />
+        $sb_info['partial_payment_table'][] = array('payment_date' =&gt; $result['date'],<br />
+                                                    'payment_amount' =&gt; $result['amount']);<br />
+      }<br />
+      <br />
+      $sb_info['partial_payment_table_total'] = $p_table_total;<br />
+    }<br />
+    <br />
+    //Get order total info<br />
+    $sb_order_total_query = tep_db_query(&quot;SELECT value FROM &quot; .TABLE_ORDERS_TOTAL. &quot; WHERE orders_id=&quot; .(int)$order_id. &quot; AND class='ot_total'&quot;);<br />
+    $sb_order_total = tep_db_fetch_array($sb_order_total_query);<br />
+    $sb_info['order_total'] = tep_round($sb_order_total['value'],2);<br />
+    $sb_info['order_total_with_safebill'] = $sb_info['order_total'] + $sb_info['invoicing_costs'] + $sb_info['partial_payment_fees'];<br />
+    <br />
+    return $sb_info;<br />
+  }<br />
+   //SAFEBILL<br />
+<br />
+<br />
+ <br />
+-----------------------------------------------------------         <br />
+  10) ADMIN: order.php <br />
+-----------------------------------------------------------<br />
+Open the file &quot;/YOUR_SHOP_ROOT_/_YOUR_SHOP_ADMIN_/includes/classes/order.php&quot;.<br />
+  <br />
+**************************************************************<br />
+  Search the following code (about line 36):<br />
+**************************************************************<br />
+  <br />
+  $this-&gt;info = array('currency' =&gt; $order['currency'],<br />
+                          'currency_value' =&gt; $order['currency_value'],<br />
+                          'payment_method' =&gt; $order['payment_method'],<br />
+                          'cc_type' =&gt; $order['cc_type'],<br />
+                          'cc_owner' =&gt; $order['cc_owner'],<br />
+                          'cc_number' =&gt; $order['cc_number'],<br />
+                          'cc_expires' =&gt; $order['cc_expires'],<br />
+                          'date_purchased' =&gt; $order['date_purchased'],<br />
+                          'orders_status' =&gt; $order['orders_status'],<br />
+                          'last_modified' =&gt; $order['last_modified']);<br />
+						  <br />
+************************************************************** <br />
+  and replace it with the following code:<br />
+**************************************************************<br />
+  $this-&gt;info = array('currency' =&gt; $order['currency'],<br />
+                          'currency_value' =&gt; $order['currency_value'],<br />
+                          'payment_method' =&gt; $order['payment_method'],<br />
+                          'cc_type' =&gt; $order['cc_type'],<br />
+                          'cc_owner' =&gt; $order['cc_owner'],<br />
+                          'cc_number' =&gt; $order['cc_number'],<br />
+                          'cc_expires' =&gt; $order['cc_expires'],<br />
+                          'date_purchased' =&gt; $order['date_purchased'],<br />
+                          'orders_status' =&gt; $order['orders_status'],<br />
+                          'last_modified' =&gt; $order['last_modified']);<br />
+//SAFEBILL<br />
+if(defined('MODULE_PAYMENT_SAFEBILLOSC_STATUS')){<br />
+  $this-&gt;info['safebill_info'] = sb_get_safebill_order_info($order_id);<br />
+}<br />
+//SAFEBILL<br />
+<br />
+-----------------------------------------------------------         <br />
+  11) ADMIN: orders.php <br />
+-----------------------------------------------------------<br />
+<br />
+/YOUR_SHOP_ROOT_/_YOUR_SHOP_ADMIN_/orders.php&quot;.<br />
+<br />
+**************************************************************<br />
+  Search the following code (about line 175):<br />
+**************************************************************<br />
+if ($order_updated == true) {<br />
+<br />
+         	$messageStack-&gt;add_session(SUCCESS_ORDER_UPDATED, 'success');<br />
+<br />
+**************************************************************<br />
+  Right after, add the following part of code:<br />
+**************************************************************<br />
+//SAFEBILL<br />
+        	$order_status_history_id = tep_db_insert_id();<br />
+        	include(DIR_WS_CLASSES . 'safebill.php');<br />
+        	$sb = new safebill();<br />
+        	<br />
+        	if($sb-&gt;check_status()){<br />
+				<br />
+        		$sb_check_status_query = tep_db_query(&quot;SELECT set_sb_aknowledge, set_sb_cancel FROM &quot; . TABLE_ORDERS_STATUS . &quot; WHERE orders_status_id = '&quot; . (int)$status . &quot;'&quot;);<br />
+        		$sb_check_status = tep_db_fetch_array($sb_check_status_query);<br />
+        		<br />
+        		$operation = $sb-&gt;set_sb_operation($sb_check_status['set_sb_aknowledge'],$sb_check_status['set_sb_cancel'],$oID,$order_status_history_id);<br />
+        		<br />
+        		if($operation != false){<br />
+        		<br />
+        			if(isset($operation['aknowledge'])){<br />
+        				$messageStack-&gt;add_session($operation['aknowledge']['message'], $operation['aknowledge']['status']);<br />
+<br />
+        			}<br />
+        		<br />
+        			if(isset($operation['cancel'])){<br />
+        				$messageStack-&gt;add_session($operation['cancel']['message'], $operation['cancel']['status']);<br />
+        			}<br />
+        		}else{<br />
+        			$messageStack-&gt;add_session('Safebill operation error', 'error');<br />
+        		}<br />
+        	<br />
+           }<br />
+        //SAFEBILL<br />
+**************************************************************<br />
+  Search the following code (about line 175):<br />
+**************************************************************<br />
+<br />
+       &lt;td&gt;&lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;<br />
+          &lt;tr&gt;<br />
+            &lt;td class=&quot;main&quot;&gt;&lt;b&gt;&lt;?php echo ENTRY_PAYMENT_METHOD; ?&gt;&lt;/b&gt;&lt;/td&gt;<br />
+            &lt;td class=&quot;main&quot;&gt;&lt;?php echo $order-&gt;info['payment_method']; ?&gt;&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+**************************************************************<br />
+  Right after, add the following part of code:<br />
+**************************************************************<br />
+<br />
+&lt;?php<br />
+//SAFEBILL<br />
+if(isset($order-&gt;info['safebill_info']['payment_result']) &amp;&amp; tep_not_null($order-&gt;info['safebill_info']['payment_result'])){?&gt;<br />
+        &lt;tr&gt;<br />
+            &lt;td class=&quot;main&quot;&gt;&lt;b&gt;&lt;?php echo ENTRY_SAFEBILL_RESULT; ?&gt;&lt;/b&gt;&lt;/td&gt;<br />
+            &lt;td class=&quot;main&quot;&gt;&lt;?php echo $order-&gt;info['safebill_info']['payment_result']; ?&gt;&lt;/td&gt;<br />
+        &lt;/tr&gt;<br />
+&lt;?php<br />
+}<br />
+?&gt;<br />
+<br />
+**************************************************************<br />
+  Search the following code (about line 257):<br />
+**************************************************************<br />
+&lt;?php<br />
+    for ($i = 0, $n = sizeof($order-&gt;totals); $i &lt; $n; $i++) {<br />
+      echo '              &lt;tr&gt;' . &quot;n&quot; .<br />
+           '                &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;totals[$i]['title'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+           '                &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;totals[$i]['text'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+           '              &lt;/tr&gt;' . &quot;n&quot;;<br />
+    }<br />
+?&gt;<br />
+<br />
+**************************************************************<br />
+  And replace with:<br />
+**************************************************************<br />
+<br />
+&lt;?php<br />
+    for ($i = 0, $n = sizeof($order-&gt;totals); $i &lt; $n; $i++) {<br />
+      echo '              &lt;tr&gt;' . &quot;n&quot; .<br />
+           '                &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;totals[$i]['title'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+           '                &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;totals[$i]['text'] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+           '              &lt;/tr&gt;' . &quot;n&quot;;<br />
+    }<br />
+    //SAFEBILL<br />
+    if(defined('MODULE_PAYMENT_SAFEBILLOSC_STATUS')){<br />
+      if(isset($order-&gt;info['safebill_info']['invoicing_costs']) &amp;&amp; $order-&gt;info['safebill_info']['invoicing_costs'] &gt; 0){<br />
+         echo '        &lt;tr&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . HEAD_SAFEBILL_INVOICE_FEE . '&lt;/td&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;info['safebill_info']['invoicing_costs'] . '&lt;/td&gt;'. &quot;n&quot; .<br />
+              '        &lt;/tr&gt;' . &quot;n&quot;;<br />
+      }<br />
+      if(isset($order-&gt;info['safebill_info']['partial_payment_fees']) &amp;&amp; $order-&gt;info['safebill_info']['partial_payment_fees'] &gt; 0){<br />
+         echo '        &lt;tr&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . HEAD_SAFEBILL_PARTIAL_PAYMENT_FEE . '&lt;/td&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;' . $order-&gt;info['safebill_info']['partial_payment_fees'] . '&lt;/td&gt;'. &quot;n&quot; .<br />
+              '        &lt;/tr&gt;' . &quot;n&quot;;<br />
+      }<br />
+      if($order-&gt;info['safebill_info']['invoicing_costs'] &gt; 0 || $order-&gt;info['safebill_info']['partial_payment_fees'] &gt; 0){<br />
+        echo '        &lt;tr&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;&lt;strong&gt;' . HEAD_SAFEBILL_COMPLETE_TOTAL . '&lt;/strong&gt;&lt;/td&gt;' . &quot;n&quot; .<br />
+              '           &lt;td align=&quot;right&quot; class=&quot;smallText&quot;&gt;&lt;strong&gt;' . $currencies-&gt;format($order-&gt;info['safebill_info']['order_total_with_safebill'],true) . '&lt;/strong&gt;&lt;/td&gt;'. &quot;n&quot; .<br />
+              '        &lt;/tr&gt;' . &quot;n&quot;;<br />
+      }<br />
+    }<br />
+    //SAFEBILL<br />
+?&gt;<br />
+<br />
+<br />
+**************************************************************<br />
+  After the code above find that html code around line 287<br />
+**************************************************************<br />
+<br />
+&lt;/table&gt;&lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+        &lt;/table&gt;&lt;/td&gt;<br />
+      &lt;/tr&gt;<br />
+	  <br />
+**************************************************************<br />
+  Add the following part of code<br />
+**************************************************************<br />
+      &lt;tr&gt;<br />
+        &lt;td&gt;&lt;?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?&gt;&lt;/td&gt;<br />
+      &lt;/tr&gt;<br />
+      &lt;?php<br />
+      //SAFEBILL<br />
+      if(isset($order-&gt;info['safebill_info']['partial_payment_table']) &amp;&amp; sizeof($order-&gt;info['safebill_info']['partial_payment_table']) &gt; 0){?&gt;<br />
+          &lt;tr&gt;<br />
+            &lt;td&gt;<br />
+              &lt;table border=&quot;0&quot; width=&quot;50%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot;&gt;<br />
+                &lt;tr&gt;&lt;td class=&quot;main&quot; colspan=&quot;3&quot;&gt;&lt;b&gt;&lt;?php echo ENTRY_SAFEBILL_MODALITY; ?&gt;&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;<br />
+                &lt;tr&gt;<br />
+                  &lt;td colsapn=&quot;3&quot;&gt;&lt;?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?&gt;&lt;/td&gt;<br />
+                &lt;/tr&gt;<br />
+                &lt;tr class=&quot;dataTableHeadingRow&quot;&gt;<br />
+                  &lt;td class=&quot;dataTableHeadingContent&quot;&gt;&lt;?php echo HEAD_SAFEBILL_MODALITY_DEPOSIT; ?&gt;&lt;/td&gt;<br />
+                  &lt;td class=&quot;dataTableHeadingContent&quot;&gt;&lt;?php echo HEAD_SAFEBILL_MODALITY_DATE; ?&gt;&lt;/td&gt;<br />
+                  &lt;td class=&quot;dataTableHeadingContent&quot;&gt;&lt;?php echo HEAD_SAFEBILL_MODALITY_AMOUNT; ?&gt;&lt;/td&gt;<br />
+                &lt;/tr&gt;<br />
+                &lt;?php<br />
+                foreach($order-&gt;info['safebill_info']['partial_payment_table'] as $key =&gt; $value){<br />
+                  <br />
+                  echo '&lt;tr class=&quot;dataTableRow&quot;&gt;';<br />
+                  echo '&lt;td class=&quot;dataTableContent&quot;&gt;' .($key + 1). '&lt;/td&gt;';<br />
+                  echo '&lt;td class=&quot;dataTableContent&quot;&gt;' .$value['payment_date']. '&lt;/td&gt;';<br />
+                  echo '&lt;td class=&quot;dataTableContent&quot;&gt;' .$currencies-&gt;format($value['payment_amount'],true, $order-&gt;info['currency'], $order-&gt;info['currency_value']). '&lt;/td&gt;';<br />
+                  echo '&lt;/tr&gt;';<br />
+                }<br />
+                ?&gt;<br />
+                <br />
+                &lt;tr class=&quot;dataTableHeadingRow&quot;&gt;<br />
+                  &lt;td class=&quot;dataTableHeadingContent&quot;&gt;Total&lt;/td&gt;<br />
+                  &lt;td&gt;&amp;nbsp;&lt;/td&gt;<br />
+                  &lt;td class=&quot;dataTableHeadingContent&quot;&gt;&lt;?php echo $currencies-&gt;format($order-&gt;info['safebill_info']['partial_payment_table_total'],true, $order-&gt;info['currency'], $order-&gt;info['currency_value']); ?&gt;&lt;/td&gt;<br />
+                &lt;/tr&gt;<br />
+              &lt;/table&gt;<br />
+            &lt;/td&gt;<br />
+          &lt;/tr&gt;<br />
+    &lt;?php      <br />
+      }<br />
+      ?&gt;<br />
+<br />
+**************************************************************<br />
+  After the code above find that html code<br />
+**************************************************************  <br />
+	  <br />
+	  &lt;td class=&quot;main&quot;&gt;&lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; cellpadding=&quot;5&quot;&gt;<br />
+          &lt;tr&gt;<br />
+            &lt;td class=&quot;smallText&quot; align=&quot;center&quot;&gt;&lt;strong&gt;&lt;?php echo TABLE_HEADING_DATE_ADDED; ?&gt;&lt;/strong&gt;&lt;/td&gt;<br />
+            &lt;td class=&quot;smallText&quot; align=&quot;center&quot;&gt;&lt;strong&gt;&lt;?php echo TABLE_HEADING_CUSTOMER_NOTIFIED; ?&gt;&lt;/strong&gt;&lt;/td&gt;<br />
+            &lt;td class=&quot;smallText&quot; align=&quot;center&quot;&gt;&lt;strong&gt;&lt;?php echo TABLE_HEADING_STATUS; ?&gt;&lt;/strong&gt;&lt;/td&gt;<br />
+            &lt;td class=&quot;smallText&quot; align=&quot;center&quot;&gt;&lt;strong&gt;&lt;?php echo TABLE_HEADING_COMMENTS; ?&gt;&lt;/strong&gt;&lt;/td&gt;<br />
+			<br />
+**************************************************************<br />
+  Add the following part of code<br />
+**************************************************************<br />
+&lt;!--//SAFEBILL--&gt;<br />
+            &lt;td class=&quot;smallText&quot; align=&quot;center&quot;&gt;&lt;strong&gt;&lt;?php echo TABLE_HEADING_SB_STATUS; ?&gt;&lt;/strong&gt;&lt;/td&gt;<br />
+&lt;!--//SAFEBILL--&gt;<br />
+<br />
+**************************************************************<br />
+  After the code above find this piece of code<br />
+************************************************************** <br />
+$orders_history_query = tep_db_query(&quot;select orders_status_id, date_added, customer_notified, comments from &quot; . TABLE_ORDERS_STATUS_HISTORY . &quot; where orders_id = '&quot; . tep_db_input($oID) . &quot;' order by date_added&quot;);<br />
+<br />
+**************************************************************<br />
+  Replace with this one<br />
+**************************************************************<br />
+<br />
+ //SAFEBILL<br />
+    $orders_history_query = tep_db_query(&quot;select orders_status_id, date_added, customer_notified, comments, sb_return_status from &quot; . TABLE_ORDERS_STATUS_HISTORY . &quot; where orders_id = '&quot; . tep_db_input($oID) . &quot;' order by date_added&quot;);<br />
+//SAFEBILL<br />
+<br />
+**************************************************************<br />
+  Fine the following part of code<br />
+**************************************************************<br />
+if ($orders_history['customer_notified'] == '1') {<br />
+          echo tep_image(DIR_WS_ICONS . 'tick.gif', ICON_TICK) . &quot;&lt;/td&gt;n&quot;;<br />
+        } else {<br />
+          echo tep_image(DIR_WS_ICONS . 'cross.gif', ICON_CROSS) . &quot;&lt;/td&gt;n&quot;;<br />
+        }<br />
+        echo '            &lt;td class=&quot;smallText&quot;&gt;' . $orders_status_array[$orders_history['orders_status_id']] . '&lt;/td&gt;' . &quot;n&quot; .<br />
+             '            &lt;td class=&quot;smallText&quot;&gt;' . nl2br(tep_db_output($orders_history['comments'])) . '&amp;nbsp;&lt;/td&gt;' . &quot;n&quot; .<br />
+**************************************************************<br />
+ Right after add the following line<br />
+**************************************************************<br />
+//SAFEBILL<br />
+             '			  &lt;td class=&quot;smallText&quot;&gt;' . nl2br(tep_db_output($orders_history['sb_return_status'])) . '&amp;nbsp;&lt;/td&gt;' . &quot;n&quot; .<br />
+//SAFEBILL<br />
+-----------------------------------------------------------         <br />
+  12) ADMIN: orders.php <br />
+-----------------------------------------------------------<br />
+Open the file &quot;/YOUR_SHOP_ROOT_/_YOUR_SHOP_ADMIN_/includes/languages/english/orders.php&quot;.<br />
+**************************************************************<br />
+  At the end of file add the following part of code:<br />
+**************************************************************<br />
+//SAFEBILL<br />
+define('ENTRY_SAFEBILL_RESULT','Safebill payment result: ');<br />
+define('ENTRY_SAFEBILL_MODALITY', 'Payment modality:');<br />
+define('HEAD_SAFEBILL_MODALITY_DEPOSIT', 'Deposit Nb');<br />
+define('HEAD_SAFEBILL_MODALITY_DATE', 'Payment date');<br />
+define('HEAD_SAFEBILL_MODALITY_AMOUNT', 'Amount');<br />
+define('HEAD_SAFEBILL_INVOICE_FEE','Invoicing fees:');<br />
+define('HEAD_SAFEBILL_PARTIAL_PAYMENT_FEE','Partial payment fees:');<br />
+define('HEAD_SAFEBILL_COMPLETE_TOTAL','Total final:');<br />
+<br />
+-----------------------------------------------------------         <br />
+  13) ADMIN: database_tables.php <br />
+-----------------------------------------------------------<br />
+<br />
+Open the file &quot;/YOUR_SHOP_ROOT_/_YOUR_SHOP_ADMIN_/includes/database_tables.php&quot;.<br />
+<br />
+**************************************************************<br />
+  At the end of file add the following part of code:<br />
+**************************************************************<br />
+//SAFEBILL<br />
+  define('TABLE_SAFEBILL_PARTIAL_PAYMENT_TABLE','sb_partial_payment_table');<br />
+  define('TABLE_SAFEBILL_PAYMENT_RESULTS','sb_payment_results');<br />
+  <br />
+<br />
+-----------------------------------------------------------         <br />
+  14) ADMIN: MODULE INSTALLATION<br />
+-----------------------------------------------------------<br />
+<br />
+RECOMANDATION: PLEASE BACKUP YOUR DATABASE BEFORE INSTALLING THE MODULE<br />
+<br />
+The install script add 2 new tables in the database and alter the table orders and customers adding new fields.<br />
+<br />
+Once you've made ALL the modifications above, login to your administration and go<br />
+to Modules&gt;Payment section, select the Safebill payment Method and click on the install button<br />
+  <br />
+  <br />
+###################### E  N  D   #########################  <br />";s:7:"pubDate";s:31:"Wed, 14 Aug 2013 09:51:13 +0200";}i:3;a:4:{s:5:"title";s:27:"Upload PDF or any othe file";s:4:"link";s:38:"http://addons.oscommerce.com/info/6296";s:11:"description";s:2007:"For further quries contact me at rups_2000in@yahoo.com<br />
+<br />
+<br />
+Files Added:<br />
+1. admin/includes/languages/english/upload_pdf.php<br />
+2. admin/upload_pdf.php<br />
+3. catalog/download_pdf.php<br />
+<br />
+Files modified:<br />
+1. admin/includes/languages/english.php<br />
+2. admin/includes/filenames.php<br />
+3. admin/includes/boxes/tools.php<br />
+4. admin/includes/database_tables.php<br />
+<br />
+<br />
+//SQL<br />
+CREATE TABLE `tbl_pdf_list` (<br />
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,<br />
+`list_for` VARCHAR( 255 ) NOT NULL ,<br />
+`pdf` VARCHAR( 255 ) NOT NULL ,<br />
+`added_date` DATETIME NOT NULL<br />
+) ENGINE = MYISAM ;<br />
+<br />
+1. Add EOF of the admin/includes/database_tables.php<br />
+   define('TABLE_PDF', 'tbl_pdf_list');<br />
+<br />
+2. Add EOF of the admin/includes/languages/english.php<br />
+   define('BOX_UPLOAD_PDF', 'Upload Pdf');<br />
+   define('IMAGE_NEW_PDF', 'Upload New Pdf');<br />
+<br />
+3. admin/includes/boxes/tools.php<br />
+<br />
+Search for:<br />
+'&lt;a href=&quot;' . tep_href_link(FILENAME_BANNER_MANAGER) . '&quot; class=&quot;menuBoxContentLink&quot;&gt;' . BOX_TOOLS_BANNER_MANAGER . '&lt;/a&gt;&lt;br&gt;' .<br />
+<br />
+Add under it:<br />
+<br />
+'&lt;a href=&quot;' . tep_href_link(FILENAME_UPLOAD_PDF) . '&quot; class=&quot;menuBoxContentLink&quot;&gt;' . BOX_UPLOAD_PDF . '&lt;/a&gt;&lt;br&gt;' .<br />
+<br />
+4. Add EOF of the admin/includes/filenames.php<br />
+define('FILENAME_UPLOAD_PDF', 'upload_pdf.php');<br />
+<br />
+5. In front end:<br />
+Give the link of the download.pdf file and pass the pdf file name along with path as below:<br />
+<br />
+<br />
+&lt;?<br />
+	$sqlPdf = tep_db_query(&quot;select * from tbl_pdf_list&quot;);<br />
+	while($fetchPdf = tep_db_fetch_array($sqlPdf))<br />
+	{<br />
+?&gt;<br />
+		&lt;a href=&quot;download_pdf.php?file=&lt;? echo DIR_WS_IMAGES.$fetchPdf['pdf'];?&gt;&quot; &gt;&lt;span&gt;&lt;?=$fetchPdf['list_for'];?&gt;&lt;/span&gt;&lt;/a&gt; <br />
+&lt;?	<br />
+	}<br />
+?&gt;";s:7:"pubDate";s:31:"Wed, 14 Aug 2013 09:48:49 +0200";}i:4;a:4:{s:5:"title";s:14:"admin red dark";s:4:"link";s:38:"http://addons.oscommerce.com/info/8874";s:11:"description";s:759:"Free osCommerce 2.3.3 Admin Template Dark Red Style<br />
+<br />
+Tested on Firefox and Chrome not tested on Opera and IE but I think it will work on both browsers.<br />
+<br />
+How To Install?<br />
+<br />
+First, Back up your store!<br />
+<br />
+Second, rename configure.php in catalog &gt; admin &gt; includes in your new admin template.<br />
+<br />
+Third, rename stylesheet.css in catalog &gt; admin &gt; includes in your admin store template.<br />
+<br />
+Fourth, rename oscommerce.png in catalog &gt; admin &gt; images in your new admin template.<br />
+<br />
+fifth, copy all admin files from your new admin template to your existing store.<br />
+<br />
+Refresh your store then go to admin control panel.<br />
+<br />
+Finish.<br />
+<br />
+Good Luck<br />";s:7:"pubDate";s:31:"Wed, 14 Aug 2013 00:46:13 +0200";}}s:11:"items_count";i:5;}
