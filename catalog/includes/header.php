@@ -14,7 +14,7 @@
     echo '<div class="grid_24">' . $messageStack->output('header') . '</div>';
   }
 ?>
-
+<meta name="google-translate-customization" content="8144c1c1ec47c252-cbfc4d8c431dd832-g6003a68af776295d-10"></meta>
 <div id="header" class="grid_24">
   <div id="storeLogo"><?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.png', STORE_NAME) . '</a>'; ?></div>
 
@@ -60,3 +60,9 @@
 <?php
   }
 ?>
+<div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
