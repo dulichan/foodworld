@@ -1,7 +1,4 @@
 <?php
-		if (!tep_session_is_registered('login'))
-			tep_session_register('login');
-	
 	if (isset($HTTP_POST_VARS['sbmSubmit'])){
 		$suppliers_name = $HTTP_POST_VARS['txtSuppliername'];
 		$password = $HTTP_POST_VARS['txtPassword'];
@@ -10,16 +7,14 @@
 		$suppliers_rows = tep_db_num_rows($suppliers_query);
 		$suppliers_result = tep_db_fetch_array($suppliers_query);
 		if ($suppliers_rows >= 1){
-		$login = $suppliers_result['suppliers_id'];
-		if (!tep_session_is_registered('suppliers_login'))
-			tep_session_register('suppliers_login');
 			$login = $suppliers_result['suppliers_id'];
-		}
-		else
+			tep_session_register('supplier_login');
+			$_SESSION["login"]=$login;
+		}else{
 			$err_message = "Error message: Username or Password is wrong. Please try again.!";
-	}	
-	
-	if (!tep_session_is_registered('suppliers_login')){
+		}
+	}
+	if (!tep_session_is_registered('supplier_login')){
 	//if (!isset($_SESSION['suppliers_login'])){
 ?>
 <html>
@@ -54,6 +49,9 @@ a:hover.headerLink { font-family: Verdana, Arial, sans-serif; font-size: 10px; c
 .menusub { font-family: Verdana, Arial, sans-serif; font-size: 10px; }
 
 //--></style>
+
+
+
 </head>
 <body marginwidth="50" marginheight="100" topmargin="100" bottommargin="50" leftmargin="50" rightmargin="50" bgcolor="#FFFFFF">
 <center>

@@ -53,4 +53,12 @@
   define('FILENAME_VERSION_CHECK', 'version_check.php');
   define('FILENAME_WHOS_ONLINE', 'whos_online.php');
   define('FILENAME_ZONES', 'zones.php');
+// Filename for Supplier's Area
+define('FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS','../supplier/supplier_s_categories_products.php');
+define('FILENAME_SUPPLIER_ORDERS','../supplier/supplier_s_orders.php');
+define('FILENAME_SUPPLIER_STATISTIC','../supplier/supplier_s_statistic.php');
+define('FILENAME_SUPPLIER_VIEWED','../supplier/supplier_s_viewed.php');
+define('FILENAME_SUPPLIERSADMIN', 'suppliersadmin.php');
+define('FILENAME_SUPPLIERAREA', '../supplier/supplierarea.php');
+define('FILENAME_SUPPLIERS', '../supplier/suppliers.php');
 ?>

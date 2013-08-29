@@ -11,9 +11,10 @@
 */
 
   require('includes/application_top.php');
-  require('includes/supplier_area_top.php');
-  $suppliers_id = $HTTP_SESSION_VARS['login'];
-
+  if (!tep_session_is_registered('login')){
+	  require('includes/supplier_area_top.php');
+  }
+  $suppliers_id = $_SESSION['login'];
   $osCAdminID = $_REQUEST['osCAdminID'];
   require(DIR_WS_CLASSES . 'currencies.php');
   $currencies = new currencies();
@@ -373,6 +374,7 @@
     </table></td>
 <!-- body_text //-->
     <td width="100%" valign="top">
+	
 <?php
   if ($action == 'new_product') {
     $parameters = array('products_name' => '',
@@ -418,7 +420,6 @@
       $tax_class_array[] = array('id' => $tax_class['tax_class_id'],
                                  'text' => $tax_class['tax_class_title']);
     }
-
     $languages = tep_get_languages();
 
     if (!isset($pInfo->products_status)) $pInfo->products_status = '1';
@@ -442,7 +443,6 @@ var tax_rates = new Array();
       }
     }
 ?>
-
 function doRound(x, places) {
   return Math.round(x * Math.pow(10, places)) / Math.pow(10, places);
 }
@@ -482,6 +482,7 @@ function updateNet() {
 //--></script>
     <?php echo tep_draw_form('new_product', FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, 'cPath=' . $cPath . (isset($HTTP_GET_VARS['pID']) ? '&pID=' . $HTTP_GET_VARS['pID'] : '') . '&action=new_product_preview', 'post', 'enctype="multipart/form-data"'); ?>
     <table border="0" width="100%" cellspacing="0" cellpadding="2">
+	
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
@@ -828,8 +829,7 @@ updateGross();
 	      if ($current_category_id == 0)
 		  	$categories_query = tep_db_query("select c.supplier_id, c.categories_id, cd.categories_name, c.categories_image, cd.categories_id, c.sort_order, c.date_added, c.last_modified, cts.categories_id, cts.suppliers_id from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd, " . TABLE_CATEGORIES_TO_SUPPLIERS . " cts where c.categories_id = cd.categories_id and c.categories_id = cts.categories_id and cts.suppliers_id = '" . (int)$suppliers_id . "' order by c.sort_order, cd.categories_name");
 		  else
-		    $categories_query = tep_db_query("select c.supplier_id, c.categories_id, cd.categories_name, c.categories_image, c.parent_id, c.sort_order, c.date_added, c.last_modified from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd " ." where c.parent_id = '" . (int)$current_category_id . "' and c.categories_id = cd.categories_id and cd.language_id = '" . (int)$languages_id . "' order by c.sort_order, cd.categories_name");	  
-
+		    $categories_query = tep_db_query("select c.supplier_id, c.categories_id, cd.categories_name, c.categories_image, c.parent_id, c.sort_order, c.date_added, c.last_modified from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd " ." where c.parent_id = '" . (int)$current_category_id . "' and c.categories_id = cd.categories_id and cd.language_id = '" . (int)$languages_id . "' order by c.sort_order, cd.categories_name");
     while ($categories = tep_db_fetch_array($categories_query)) {
       $categories_count++;
       $rows++;
@@ -858,7 +858,6 @@ updateGross();
 <?php
     }
 	}
-
     $products_count = 0;
     if (isset($HTTP_GET_VARS['search'])) {
       $products_query = tep_db_query("select p.supplier_id, p.products_id, pd.products_name, p.products_quantity, p.products_image, p.products_price, p.products_date_added, p.products_last_modified, p.products_date_available, p.products_status, p.products_model, p2c.categories_id, p.suppliers_id from " . TABLE_PRODUCTS . " p, " . TABLE_PRODUCTS_DESCRIPTION . " pd, " . TABLE_PRODUCTS_TO_CATEGORIES . " p2c where p.products_id = pd.products_id and pd.language_id = '" . (int)$languages_id . "' and p.products_id = p2c.products_id and pd.products_name like '%" . tep_db_input($search) . "%' and p.suppliers_id = '" . (int)$suppliers_id . "' order by p.products_model");
@@ -879,7 +878,6 @@ updateGross();
         $pInfo_array = array_merge($products, $reviews);
         $pInfo = new objectInfo($pInfo_array);
       }
-
       if (isset($pInfo) && is_object($pInfo) && ($products['products_id'] == $pInfo->products_id) ) {
         echo '              <tr id="defaultSelected" class="dataTableRowSelected" onmouseover="rowOverEffect(this)" onmouseout="rowOutEffect(this)" onclick="document.location.href=\'' . tep_href_link(FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, 'cPath=' . $cPath . '&pID=' . $products['products_id'] . '&action=new_product_preview&read=only') . '\'">' . "\n";
       } else {
@@ -917,7 +915,8 @@ updateGross();
                 <td colspan="3"><table border="0" width="100%" cellspacing="0" cellpadding="2">
                   <tr>
                     <td class="smallText"><?php echo TEXT_CATEGORIES . '&nbsp;' . $categories_count . '<br>' . TEXT_PRODUCTS . '&nbsp;' . $products_count; ?></td>
-                    <td align="right" class="smallText"><?php if (sizeof($cPath_array) > 0) echo '<a href="' . tep_href_link(FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, $cPath_back . 'cID=' . $current_category_id) . '"><img src="images/button_back.gif" alt="Back" title=" Back " border="0"></a>&nbsp;'; if (!isset($HTTP_GET_VARS['search'])) if($current_category_id != 0) echo '<a href="' . tep_href_link(FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, 'cPath=' . $cPath . '&action=new_category') . '"><img src="images/button_new_category.gif" alt="New Category" title=" New Category " border="0"></a>&nbsp;<a href="' . tep_href_link(FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, 'cPath=' . $cPath . '&action=new_product') . '"><img src="images/button_new_product.gif" alt="New Product" title=" New Product " border="0"></a>'; ?>&nbsp;</td>
+                    <td align="right" class="smallText"><?php if (sizeof($cPath_array) > 0) echo '<a href="' . tep_href_link(FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, $cPath_back . 'cID=' . $current_category_id) . '"><img src="images/button_back.gif" alt="Back" title=" Back " border="0"></a>&nbsp;'; if (!isset($HTTP_GET_VARS['search']))
+if($current_category_id != 0) {echo '<a href="' . tep_href_link(FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, 'cPath=' . $cPath . '&action=new_category') . '"><img src="images/button_new_category.gif" alt="New Category" title=" New Category " border="0"></a>&nbsp;<a href="' . tep_href_link(FILENAME_SUPPLIER_S_CATEGORIES_PRODUCTS, 'cPath=' . $cPath . '&action=new_product') . '"><img src="images/button_new_product.gif" alt="New Product" title=" New Product " border="0"></a>';} ?>&nbsp;</td>
                   </tr>
                 </table></td>
               </tr>

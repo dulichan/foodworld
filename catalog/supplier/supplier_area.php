@@ -1,7 +1,8 @@
 <?php
   require('includes/application_top.php');
-  require('includes/supplier_area_top.php');
-  
+  if (!tep_session_is_registered('login')){
+	  require('includes/supplier_area_top.php');
+  }
 	$cat = array(
 				array(
 					'title' => BOX_HEADING_SUPPLIERAREA,

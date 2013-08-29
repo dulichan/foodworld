@@ -417,4 +417,32 @@
 
     return $button;
   }
+// Output a form multiple select menu
+      function tep_draw_mselect_menu($name, $values, $selected_vals, $params = '', $required = false) {
+        $field = '<select name="' . $name . '"';
+        if ($params) $field .= ' ' . $params;
+        $field .= ' multiple>';
+        for ($i=0; $i<sizeof($values); $i++) {
+                if ($values[$i]['id'])
+                {
+                $field .= '<option value="' . $values[$i]['id'] . '"';
+                if ( ((strlen($values[$i]['id']) > 0) && ($GLOBALS[$name] == $values[$i]['id'])) ) {
+                  $field .= ' SELECTED';
+                }
+                            else
+                            {
+                                       for ($j=0; $j<sizeof($selected_vals); $j++) {
+                                                    if ($selected_vals[$j]['id'] == $values[$i]['id'])
+                                                    {
+                                                $field .= ' SELECTED';
+                                                    }
+                                        }
+                            }
+                }
+          $field .= '>' . $values[$i]['text'] . '</option>';
+        }
+        $field .= '</select>';
+           if ($required) $field .= TEXT_FIELD_REQUIRED;
+             return $field;
+    }
 ?>

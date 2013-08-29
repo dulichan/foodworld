@@ -14,6 +14,7 @@
     echo $messageStack->output();
   }
 ?>
+
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
   <tr>
     <td><?php echo tep_image(DIR_WS_IMAGES . 'oscommerce.gif', 'osCommerce', '204', '50'); ?></td>

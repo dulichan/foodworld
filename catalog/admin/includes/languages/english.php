@@ -116,6 +116,16 @@ define('BOX_LOCALIZATION_CURRENCIES', 'Currencies');
 define('BOX_LOCALIZATION_LANGUAGES', 'Languages');
 define('BOX_LOCALIZATION_ORDERS_STATUS', 'Orders Status');
 
+// supplier box text in includes/boxes/supplier.php
+define('BOX_HEADING_SUPPLIERAREA','Supplier\'s Area');
+define('BOX_CATALOG_SUPPLIERADMIN','Supplier Admin');
+define('BOX_HEADING_SUPPLIER_S_PRODUCTS','Categories/Products');
+define('BOX_HEADING_SUPPLIER_STATISTIC','Supplier\'s Statistic');
+define('BOX_HEADING_SUPPLIER_VIEWED','Products Most Viewed');
+define('BOX_HEADING_SUPPLIER_ORDERS','Order History');
+define('BOX_SUPPLIERAREA', 'Suppliers');
+define('BOX_SUPPLIERADMIN', 'Suppliers');
+
 // javascript messages
 define('JS_ERROR', 'Errors have occured during the process of your form!\nPlease make the following corrections:\n\n');
 

@@ -13,14 +13,15 @@
   if (tep_session_is_registered('admin')) {
     $cl_box_groups = array();
 
-    include(DIR_WS_BOXES . 'configuration.php');
-    include(DIR_WS_BOXES . 'catalog.php');
-    include(DIR_WS_BOXES . 'modules.php');
-    include(DIR_WS_BOXES . 'customers.php');
-    include(DIR_WS_BOXES . 'taxes.php');
-    include(DIR_WS_BOXES . 'localization.php');
-    include(DIR_WS_BOXES . 'reports.php');
-    include(DIR_WS_BOXES . 'tools.php');
+	require(DIR_WS_BOXES . 'configuration.php');
+	  require(DIR_WS_BOXES . 'catalog.php');
+	  require(DIR_WS_BOXES . 'suppliersadmin.php');
+	  require(DIR_WS_BOXES . 'modules.php');
+	  require(DIR_WS_BOXES . 'customers.php');
+	  require(DIR_WS_BOXES . 'taxes.php');
+	  require(DIR_WS_BOXES . 'localization.php');
+	  require(DIR_WS_BOXES . 'reports.php');
+	  require(DIR_WS_BOXES . 'tools.php');
 ?>
 
 <div id="adminAppMenu">

@@ -100,4 +100,10 @@ define('ERROR_CANNOT_LINK_TO_SAME_CATEGORY', 'Error: Can not link products in th
 define('ERROR_CATALOG_IMAGE_DIRECTORY_NOT_WRITEABLE', 'Error: Catalog images directory is not writeable: ' . DIR_FS_CATALOG_IMAGES);
 define('ERROR_CATALOG_IMAGE_DIRECTORY_DOES_NOT_EXIST', 'Error: Catalog images directory does not exist: ' . DIR_FS_CATALOG_IMAGES);
 define('ERROR_CANNOT_MOVE_CATEGORY_TO_PARENT', 'Error: Category cannot be moved into child category.');
+
+// Beginn Suppliers
+define('TEXT_SUPPLIER', 'Supplier:');
+define('TEXT_SUPPLIERS_GROUP', 'Suppliers Price:');
+// End Suppliers
+
 ?>

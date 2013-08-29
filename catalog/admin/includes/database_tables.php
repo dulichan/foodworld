@@ -59,4 +59,11 @@
   define('TABLE_ZONES_TO_GEO_ZONES', 'zones_to_geo_zones');
   define('TABLE_WHOS_ONLINE', 'whos_online');
   define('TABLE_ZONES', 'zones');
+// Begin Suppliers
+  define('TABLE_SUPPLIERS', 'suppliers');
+  define('TABLE_SUPPLIERS_INFO', 'suppliers_info');
+  define('TABLE_SUPPLIERS_PRODUCTS_GROUPS', 'suppliers_products_groups');
+  define('TABLE_CATEGORIES_TO_SUPPLIERS', 'categories_to_suppliers');
+// End Suppliers 
+
 ?>

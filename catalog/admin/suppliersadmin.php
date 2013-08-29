@@ -20,6 +20,7 @@
       case 'save':
         if (isset($HTTP_GET_VARS['hID'])) $suppliers_id = tep_db_prepare_input($HTTP_GET_VARS['hID']);
         $suppliers_group_name = tep_db_prepare_input($HTTP_POST_VARS['suppliers_group_name']);
+ 		$suppliers_group_id = tep_db_prepare_input($HTTP_POST_VARS['suppliers_group_id']);
 		$suppliers_percentage = tep_db_prepare_input($HTTP_POST_VARS['suppliers_percentage']);
 		$suppliers_name_login = tep_db_prepare_input($HTTP_POST_VARS['suppliers_name_login']);
 		$suppliers_password = tep_db_prepare_input($HTTP_POST_VARS['suppliers_password']);		
@@ -36,7 +37,7 @@
 		  $insert_sql_data = array('suppliers_password' => $suppliers_password);
 
           $sql_data_array = array_merge($sql_data_array, $insert_sql_data);
-
+		  echo $suppliers_group_id;
           tep_db_perform(TABLE_SUPPLIERS, $sql_data_array);
           $suppliers_id = tep_db_insert_id();
 		  
@@ -158,6 +159,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
 <title><?php echo TITLE; ?></title>
+<link rel="stylesheet" type="text/css" href="<?php echo tep_catalog_href_link('ext/jquery/ui/redmond/jquery-ui-1.8.22.css'); ?>">
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/jquery/jquery-1.8.0.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/jquery/ui/jquery-ui-1.8.22.min.js'); ?>"></script>
+
+<script type="text/javascript">
+// fix jQuery 1.8.0 and jQuery UI 1.8.22 bug with dialog buttons; http://bugs.jqueryui.com/ticket/8484
+if ( $.attrFn ) { $.attrFn.text = true; }
+</script>
+
+<?php
+  if (tep_not_null(JQUERY_DATEPICKER_I18N_CODE)) {
+?>
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/jquery/ui/i18n/jquery.ui.datepicker-' . JQUERY_DATEPICKER_I18N_CODE . '.js'); ?>"></script>
+<script type="text/javascript">
+$.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18N_CODE; ?>']);
+</script>
+<?php
+  }
+?>
+
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/flot/jquery.flot.js'); ?>"></script>
 <link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
 <script language="javascript" src="includes/general.js"></script>
 </head>
