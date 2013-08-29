@@ -1,13 +1,13 @@
 <?php
-  define('HTTP_SERVER', 'http://localhost');
-  define('HTTPS_SERVER', 'http://localhost');
+  define('HTTP_SERVER', 'http://localhost:8080');
+  define('HTTPS_SERVER', 'http://localhost:8080');
   define('ENABLE_SSL', false);
   define('HTTP_COOKIE_DOMAIN', '');
   define('HTTPS_COOKIE_DOMAIN', '');
-  define('HTTP_COOKIE_PATH', '/foodcourt/catalog/');
-  define('HTTPS_COOKIE_PATH', '/foodcourt/catalog/');
-  define('DIR_WS_HTTP_CATALOG', '/foodcourt/catalog/');
-  define('DIR_WS_HTTPS_CATALOG', '/foodcourt/catalog/');
+  define('HTTP_COOKIE_PATH', '/catalog/');
+  define('HTTPS_COOKIE_PATH', '/catalog/');
+  define('DIR_WS_HTTP_CATALOG', '/catalog/');
+  define('DIR_WS_HTTPS_CATALOG', '/catalog/');
   define('DIR_WS_IMAGES', 'images/');
   define('DIR_WS_ICONS', DIR_WS_IMAGES . 'icons/');
   define('DIR_WS_INCLUDES', 'includes/');
@@ -17,15 +17,15 @@
   define('DIR_WS_LANGUAGES', DIR_WS_INCLUDES . 'languages/');
 
   define('DIR_WS_DOWNLOAD_PUBLIC', 'pub/');
-  define('DIR_FS_CATALOG', '/Applications/XAMPP/xamppfiles/htdocs/foodcourt/catalog/');
+  define('DIR_FS_CATALOG', 'C:/wamp/www/catalog/');
   define('DIR_FS_DOWNLOAD', DIR_FS_CATALOG . 'download/');
   define('DIR_FS_DOWNLOAD_PUBLIC', DIR_FS_CATALOG . 'pub/');
 
-  define('DB_SERVER', '127.0.0.1');
-  define('DB_SERVER_USERNAME', 'root');
-  define('DB_SERVER_PASSWORD', '');
+  define('DB_SERVER', 'localhost');
+  define('DB_SERVER_USERNAME', 'shinyredapples');
+  define('DB_SERVER_PASSWORD', 'securepassword');
   define('DB_DATABASE', 'oscommerce');
   define('USE_PCONNECT', 'false');
   define('STORE_SESSIONS', 'mysql');
-  define('CFG_TIME_ZONE', 'Asia/Colombo');
+  define('CFG_TIME_ZONE', 'UTC');
 ?>

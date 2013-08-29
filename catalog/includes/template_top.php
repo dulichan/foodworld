@@ -26,9 +26,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>" />
 <title><?php echo tep_output_string_protected($oscTemplate->getTitle()); ?></title>
 <base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>" />
-<link rel="stylesheet" type="text/css" href="ext/jquery/ui/redmond/jquery-ui-1.8.22.css" />
-<script type="text/javascript" src="ext/jquery/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="ext/jquery/ui/jquery-ui-1.8.22.min.js"></script>
+<link rel="stylesheet" type="text/css" href="ext/jquery/ui/theme11/jquery-ui-1.10.3.css" />
+<script type="text/javascript" src="ext/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="ext/jquery/ui/jquery-ui-1.10.3.min.js"></script>
 
 <script type="text/javascript">
 // fix jQuery 1.8.0 and jQuery UI 1.8.22 bug with dialog buttons; http://bugs.jqueryui.com/ticket/8484
@@ -52,6 +52,68 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
 <link rel="stylesheet" type="text/css" href="ext/960gs/<?php echo ((stripos(HTML_PARAMS, 'dir="rtl"') !== false) ? 'rtl_' : ''); ?>960_24_col.css" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 <?php echo $oscTemplate->getBlocks('header_tags'); ?>
+
+<!--
+start supplier page imports
+-->
+<!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
+<link rel="stylesheet" href="js/jRating.jquery.css" type="text/css" />
+<script type="text/javascript" src="js/jRating.jquery.js"></script>
+<script type="text/javascript">
+					  $(document).ready(function(){
+						  $('.basic').jRating();
+						  $('.addreviewbtn').click(function(){
+							  //$('.basic').jRating();
+							  $('.addreviewcont').toggle();
+						  });
+						  $.post('view/fetchreviewdata.php', function(data){
+							  if(data){
+								  $('.reivewdatafetch').html(data);
+								  reloadfunctions();
+							  }
+						  });//}
+						    $.post('view/fetchsupdata.php', function(data){
+							//alert("fetchsupdata");
+							  if(data){
+								  $('.supdatafetch').html(data);
+							  }
+						  });
+					  });
+				  
+					  function reloadfunctions(){
+						  $(document).ready(function(){
+							  $(".static").jRating({
+								  isDisabled : true
+							  });							  
+						  });					  
+					  }
+				  				  
+					  function fetchdatareview(){
+						  $(document).ready(function(){
+							  $('.basic').jRating();
+							  $('textarea.commentbox').val('');
+							  $.post('view/fetchreviewdata.php', function(data){
+								   //alert('second');
+								  if(data){
+									  $('.reivewdatafetch').html(data);
+									  reloadfunctions();
+						 
+									  $('.addreviewcont').toggle();						 
+								  }
+							  });//}
+						  });					
+					  }           
+				  </script>
+                  <script type="text/javascript">
+					  $(document).ready(function(){
+						  $(".static").jRating({
+							  isDisabled : true
+						  });
+					  });
+				  </script>
+<!--
+end supplier page imports
+-->
 </head>
 <body>
 

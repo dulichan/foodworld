@@ -9,23 +9,43 @@
   Released under the GNU General Public License
 */
 
+/*
+all floats get cleared (by Ravindu)
+*/
+
+.clear{
+	clear:both;
+	}
+
 .ui-widget {
   font-family: Lucida Grande, Lucida Sans, Verdana, Arial, sans-serif;
   font-size: 11px;
 }
 
+#map_canvas {
+        width: 500px;
+        height: 400px;
+      }
+
 body {
-  background: #fff;
+  background: #FFFFFF;
   color: #000;
   margin: 0px;
   font-size: 11px;
   font-family: Lucida Grande, Lucida Sans, Verdana, Arial, sans-serif;
+
 }
 
 #bodyWrapper {
+	/*background:#FF0000;*/
+	background-image:url(images/background/box.png);
+	border-style:solid;
+	border-color:#CBCBC8;
 }
 
 #bodyContent {
+	/*background:#99FF33;*/
+	background-image:url(images/background/box.png);
 }
 
 #header {
@@ -65,6 +85,13 @@ body {
 
 .contentContainer {
   padding-bottom: 10px;
+}
+
+.reviewContainer {
+  padding-bottom: 10px;
+  height:500px;
+  overflow:scroll;
+  overflow-x:hidden;
 }
 
 .contentContainer h2 {
