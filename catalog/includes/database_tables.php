@@ -29,6 +29,7 @@
   define('TABLE_CUSTOMERS_BASKET', 'customers_basket');
   define('TABLE_CUSTOMERS_BASKET_ATTRIBUTES', 'customers_basket_attributes');
   define('TABLE_CUSTOMERS_INFO', 'customers_info');
+  define('TABLE_CUSTOMERS_DETAILS', 'customer_details');
   define('TABLE_LANGUAGES', 'languages');
   define('TABLE_MANUFACTURERS', 'manufacturers');
   define('TABLE_MANUFACTURERS_INFO', 'manufacturers_info');
@@ -40,6 +41,7 @@
   define('TABLE_ORDERS_STATUS_HISTORY', 'orders_status_history');
   define('TABLE_ORDERS_TOTAL', 'orders_total');
   define('TABLE_PRODUCTS', 'products');
+  define('TABLE_PRODUCTS_DETAILS', 'product_details');
   define('TABLE_PRODUCTS_ATTRIBUTES', 'products_attributes');
   define('TABLE_PRODUCTS_ATTRIBUTES_DOWNLOAD', 'products_attributes_download');
   define('TABLE_PRODUCTS_DESCRIPTION', 'products_description');

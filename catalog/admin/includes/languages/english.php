@@ -72,7 +72,7 @@ define('BOX_HEADING_MODULES', 'Modules');
 define('BOX_HEADING_CATALOG', 'Catalog');
 define('BOX_CATALOG_CATEGORIES_PRODUCTS', 'Categories/Products');
 define('BOX_CATALOG_CATEGORIES_PRODUCTS_ATTRIBUTES', 'Products Attributes');
-define('BOX_CATALOG_MANUFACTURERS', 'Manufacturers');
+define('BOX_CATALOG_MANUFACTURERS', 'Food Categories');
 define('BOX_CATALOG_REVIEWS', 'Reviews');
 define('BOX_CATALOG_SPECIALS', 'Specials');
 define('BOX_CATALOG_PRODUCTS_EXPECTED', 'Products Expected');
@@ -272,7 +272,7 @@ define('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS', 'Displaying <strong>%d</strong> to <s
 define('TEXT_DISPLAY_NUMBER_OF_CURRENCIES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> currencies)');
 define('TEXT_DISPLAY_NUMBER_OF_ENTRIES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> entries)');
 define('TEXT_DISPLAY_NUMBER_OF_LANGUAGES', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> languages)');
-define('TEXT_DISPLAY_NUMBER_OF_MANUFACTURERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> manufacturers)');
+define('TEXT_DISPLAY_NUMBER_OF_MANUFACTURERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> Food Categories)');
 define('TEXT_DISPLAY_NUMBER_OF_NEWSLETTERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> newsletters)');
 define('TEXT_DISPLAY_NUMBER_OF_ORDERS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> orders)');
 define('TEXT_DISPLAY_NUMBER_OF_ORDERS_STATUS', 'Displaying <strong>%d</strong> to <strong>%d</strong> (of <strong>%d</strong> orders status)');
@@ -293,7 +293,7 @@ define('TEXT_SET_DEFAULT', 'Set as default');
 define('TEXT_FIELD_REQUIRED', '&nbsp;<span class="fieldRequired">* Required</span>');
 
 define('TEXT_CACHE_CATEGORIES', 'Categories Box');
-define('TEXT_CACHE_MANUFACTURERS', 'Manufacturers Box');
+define('TEXT_CACHE_MANUFACTURERS', 'Food Categories Box');
 define('TEXT_CACHE_ALSO_PURCHASED', 'Also Purchased Module');
 
 define('TEXT_NONE', '--none--');

@@ -18,13 +18,35 @@
 </div>
 
 <?php
-  if ($banner = tep_banner_exists('dynamic', '468x50')) {
+  if ($banner = tep_banner_exists('dynamic', '10x0')) {
 ?>
 
-<div class="grid_24" style="text-align: center; padding-bottom: 20px;">
-  <?php echo tep_display_banner('static', $banner); ?>
+
+<div class="grid_4 push_2" style="text-align: center; padding-bottom: 20px;">
+    <p align="right"><?php echo tep_display_banner('static', $banner); ?>    </p>
 </div>
 
+<?php
+  }
+?>
+
+
+<?php
+if ($banner = tep_banner_exists('dynamic', '20x0')) {
+?>
+    <div class="grid_4 push_2" style="text-align: center; padding-bottom: 20px;">
+        <p align="left">  <?php echo tep_display_banner('static', $banner); ?>  </p>
+</div>
+<?php
+}
+?>
+
+<?php
+if ($banner = tep_banner_exists('dynamic', '30x0')) {
+    ?>
+    <div class="grid_4 push_2" style="text-align: center; padding-bottom: 20px;">
+        <p align="left">  <?php echo tep_display_banner('static', $banner); ?>  </p>
+    </div>
 <?php
   }
 ?>

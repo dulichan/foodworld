@@ -15,8 +15,8 @@
   }
 ?>
 <meta name="google-translate-customization" content="8144c1c1ec47c252-cbfc4d8c431dd832-g6003a68af776295d-10"></meta>
-<div id="header" class="grid_24">
-  <div id="storeLogo"><?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.png', STORE_NAME) . '</a>'; ?></div>
+<div id="header" class="grid_24.push_4">
+  <div id="storeLogo"><?php echo '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image(DIR_WS_IMAGES . 'store_logo.jpg', STORE_NAME) . '</a>'; ?></div>
 
   <div id="headerShortcuts">
 <?php

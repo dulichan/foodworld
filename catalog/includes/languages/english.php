@@ -142,6 +142,14 @@ define('ENTRY_TELEPHONE_NUMBER_ERROR', 'Your Telephone Number must contain a min
 define('ENTRY_TELEPHONE_NUMBER_TEXT', '*');
 define('ENTRY_FAX_NUMBER', 'Fax Number:');
 define('ENTRY_FAX_NUMBER_TEXT', '');
+define('ENTRY_ALLAGIC1','Allagic Food 1:');
+define('ENTRY_ALLAGIC_TEXT1','');
+define('ENTRY_ALLAGIC2','Allagic Food 2:');
+define('ENTRY_ALLAGIC_TEXT2','');
+define('ENTRY_LIKE1','Like Food 1:');
+define('ENTRY_LIKE_TEXT1','');
+define('ENTRY_LIKE2','Like Food 2:');
+define('ENTRY_LIKE_TEXT2','');
 define('ENTRY_NEWSLETTER', 'Newsletter:');
 define('ENTRY_NEWSLETTER_TEXT', '');
 define('ENTRY_NEWSLETTER_YES', 'Subscribed');

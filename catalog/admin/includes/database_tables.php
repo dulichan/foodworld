@@ -48,6 +48,7 @@
   define('TABLE_PRODUCTS_OPTIONS_VALUES', 'products_options_values');
   define('TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS', 'products_options_values_to_products_options');
   define('TABLE_PRODUCTS_TO_CATEGORIES', 'products_to_categories');
+  define('TABLE_PRODUCTS_DETAILS', 'product_details');
   define('TABLE_REVIEWS', 'reviews');
   define('TABLE_REVIEWS_DESCRIPTION', 'reviews_description');
   define('TABLE_SEC_DIRECTORY_WHITELIST', 'sec_directory_whitelist');

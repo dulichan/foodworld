@@ -27,6 +27,10 @@
       }
     }
     $firstname = tep_db_prepare_input($HTTP_POST_VARS['firstname']);
+    $allagic1 = tep_db_prepare_input($HTTP_POST_VARS['allagic1']);
+    $allagic2 = tep_db_prepare_input($HTTP_POST_VARS['allagic2']);
+    $like1 = tep_db_prepare_input($HTTP_POST_VARS['like1']);
+    $like2 = tep_db_prepare_input($HTTP_POST_VARS['like2']);
     $lastname = tep_db_prepare_input($HTTP_POST_VARS['lastname']);
     if (ACCOUNT_DOB == 'true') $dob = tep_db_prepare_input($HTTP_POST_VARS['dob']);
     $email_address = tep_db_prepare_input($HTTP_POST_VARS['email_address']);
@@ -212,6 +216,9 @@
 
       tep_db_query("insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id, customers_info_number_of_logons, customers_info_date_account_created) values ('" . (int)$customer_id . "', '0', now())");
 
+      tep_db_query("insert into " . TABLE_CUSTOMERS_DETAILS . " (customer_id,allagi1,allagi2,like1,like2) values ('" . (int)$customer_id . "', '" .$allagic1."', '" .$allagic2."','" .$like1."','" .$like2."')");
+
+
       if (SESSION_RECREATE == 'True') {
         tep_session_recreate();
       }
@@ -318,6 +325,23 @@
         <td class="fieldKey"><?php echo ENTRY_EMAIL_ADDRESS; ?></td>
         <td class="fieldValue"><?php echo tep_draw_input_field('email_address') . '&nbsp;' . (tep_not_null(ENTRY_EMAIL_ADDRESS_TEXT) ? '<span class="inputRequirement">' . ENTRY_EMAIL_ADDRESS_TEXT . '</span>': ''); ?></td>
       </tr>
+
+        <tr>
+            <td class="fieldKey"><?php echo ENTRY_ALLAGIC1; ?></td>
+            <td class="fieldValue"><?php echo tep_draw_input_field('allagic1') . '&nbsp;' . (tep_not_null(ENTRY_ALLAGIC_TEXT1) ? '<span class="inputRequirement">' . ENTRY_ALLAGIC_TEXT1 . '</span>': ''); ?></td>
+        </tr>
+        <tr>
+            <td class="fieldKey"><?php echo ENTRY_ALLAGIC2; ?></td>
+            <td class="fieldValue"><?php echo tep_draw_input_field('allagic2') . '&nbsp;' . (tep_not_null(ENTRY_ALLAGIC_TEXT2) ? '<span class="inputRequirement">' . ENTRY_ALLAGIC_TEXT2 . '</span>': ''); ?></td>
+        </tr>
+        <tr>
+            <td class="fieldKey"><?php echo ENTRY_LIKE1; ?></td>
+            <td class="fieldValue"><?php echo tep_draw_input_field('like1') . '&nbsp;' . (tep_not_null(ENTRY_LIKE_TEXT1) ? '<span class="inputRequirement">' . ENTRY_LIKE_TEXT1 . '</span>': ''); ?></td>
+        </tr>
+        <tr>
+            <td class="fieldKey"><?php echo ENTRY_LIKE2; ?></td>
+            <td class="fieldValue"><?php echo tep_draw_input_field('like2') . '&nbsp;' . (tep_not_null(ENTRY_LIKE_TEXT2) ? '<span class="inputRequirement">' . ENTRY_LIKE_TEXT2 . '</span>': ''); ?></td>
+        </tr>
     </table>
   </div>
 
