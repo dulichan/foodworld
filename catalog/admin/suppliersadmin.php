@@ -23,12 +23,20 @@
  		$suppliers_group_id = tep_db_prepare_input($HTTP_POST_VARS['suppliers_group_id']);
 		$suppliers_percentage = tep_db_prepare_input($HTTP_POST_VARS['suppliers_percentage']);
 		$suppliers_name_login = tep_db_prepare_input($HTTP_POST_VARS['suppliers_name_login']);
-		$suppliers_password = tep_db_prepare_input($HTTP_POST_VARS['suppliers_password']);		
+		$suppliers_password = tep_db_prepare_input($HTTP_POST_VARS['suppliers_password']);
+		$suppliers_telephone = tep_db_prepare_input($HTTP_POST_VARS['suppliers_telephone']);
+		$suppliers_address = tep_db_prepare_input($HTTP_POST_VARS['suppliers_address']);		
+		$suppliers_longitude = tep_db_prepare_input($HTTP_POST_VARS['suppliers_longitude']);
+		$suppliers_latitude = tep_db_prepare_input($HTTP_POST_VARS['suppliers_latitude']);
 		
         $sql_data_array = array('suppliers_group_name' => $suppliers_group_name,
                                 'suppliers_group_id' => $suppliers_group_id,
 								'suppliers_percentage' => $suppliers_percentage,
-								'suppliers_name' => $suppliers_name_login);
+								'suppliers_name' => $suppliers_name_login,
+								'suppliers_telephone' => $suppliers_telephone,
+								'suppliers_address' => $suppliers_address,
+								'suppliers_longtitude' => $suppliers_longitude,
+								'suppliers_latitude' => $suppliers_latitude);
 
 		$selected_catids = $HTTP_POST_VARS['categories'];
         if ($action == 'insert') {
@@ -283,6 +291,11 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
       $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_IMAGE . '<br>' . tep_draw_file_field('suppliers_image'));
 // Add Commission to Suppliers
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PERCENTAGE  . '<br>' . tep_draw_input_field('suppliers_percentage'));	  
+	
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_TELEPHONE . '<br>' . tep_draw_input_field('suppliers_telephone', $mInfo->suppliers_telephone));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_ADDRESS . '<br>' . tep_draw_input_field('suppliers_address', $mInfo->suppliers_address));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LONGITUDE . '<br>' . tep_draw_input_field('suppliers_longitude', $mInfo->suppliers_longitude));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LATITUDE . '<br>' . tep_draw_input_field('suppliers_latitude', $mInfo->suppliers_latitude));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_NAME_LOGIN . '<br>' . tep_draw_input_field('suppliers_name_login'));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PASSWORD . '<br>' . tep_draw_password_field('suppliers_password'));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_CATEGORIES . '<br>' . tep_draw_mselect_menu('categories[]', $categories, $categories_selected));
@@ -305,10 +318,10 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
       $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_GROUP_ID . '<br>' . tep_draw_input_field('suppliers_group_id', $mInfo->suppliers_group_id));
       $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_IMAGE . '<br>' . tep_draw_file_field('suppliers_image') . '<br>' . $mInfo->suppliers_image);
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PERCENTAGE . '<br>' . tep_draw_input_field('suppliers_percentage', $mInfo->suppliers_percentage));
-	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_TELEPHONE . '<br>' . tep_draw_input_field('suppliers_telephone', $mInfo->suppliers_percentage));
-	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_ADDRESS . '<br>' . tep_draw_input_field('suppliers_address', $mInfo->suppliers_percentage));
-	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LONGITUDE . '<br>' . tep_draw_input_field('suppliers_longitude', $mInfo->suppliers_percentage));
-	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LATITUDE . '<br>' . tep_draw_input_field('suppliers_latitude', $mInfo->suppliers_percentage));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_TELEPHONE . '<br>' . tep_draw_input_field('suppliers_telephone', $mInfo->suppliers_telephone));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_ADDRESS . '<br>' . tep_draw_input_field('suppliers_address', $mInfo->suppliers_address));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LONGITUDE . '<br>' . tep_draw_input_field('suppliers_longitude', $mInfo->suppliers_longitude));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LATITUDE . '<br>' . tep_draw_input_field('suppliers_latitude', $mInfo->suppliers_latitude));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_NAME_LOGIN . '<br>' . tep_draw_input_field('suppliers_name_login', $mInfo->suppliers_name));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PASSWORD . '(blank to not change) <br>' . tep_draw_password_field('suppliers_password'));
 	  
