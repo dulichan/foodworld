@@ -11,7 +11,7 @@ $result=$reviwdata->fetchSupplier();
 	
 	while($row=mysqli_fetch_array($result)){
 
-		echo '<label id="lblBrand">'.$row['s_name'].'</label>
+		echo '<label id="lblBrand">'.$row['suppliers_name'].'</label>
 				  <div id="tableDiv">
 					  <table width="630"  border="0" >
 						  <tbody>
@@ -20,7 +20,7 @@ $result=$reviwdata->fetchSupplier();
 								  <div id="itemImg" class="itemDiv">
 										  <div style="border: 1px solid #d9cdcc;height:150px;">
 											  <div style="margin-left: 37.5px;margin-top: 25px;">
-												  <image src="'.$row['img_url'].'" height="100"/>
+												  <image src="'.$row['suppliers_image'].'" height="100"/>
 											  </div>
 										  </div>
 									  </div>
@@ -28,13 +28,13 @@ $result=$reviwdata->fetchSupplier();
 									  <td width="50">
 									  <label>Telephone</label>
 									  <div>  
-  											'.$row['t_no'].'
+  											'.$row['suppliers_telephone'].'
   									 </div>
 									  </td>
 								  <td width="300">
 									  <label>Address</label>
 									  <div>  
-										'.$row['address'].'
+										'.$row['suppliers_address'].'
   									 </div>
 									  </td>
 							  </tr>

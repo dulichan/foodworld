@@ -29,7 +29,7 @@
       {
 		/*alert(data[6]);*/
         var map_canvas = document.getElementById('map_canvas');
-		var latlng=new google.maps.LatLng(data[5],data[6]);
+		var latlng=new google.maps.LatLng(data[12],data[11]);
         var map_options = {
           center: latlng,
           zoom: 8,

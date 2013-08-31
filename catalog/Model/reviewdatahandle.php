@@ -27,7 +27,7 @@ class reviewdatahandle {
 		
 		function fetchSupplier(){
             			      					  
-           $sql = "SELECT * FROM supplier where s_id='$this->supid' ";
+           $sql = "SELECT * FROM suppliers where suppliers_id='$this->supid' ";
            
            $result = $this->dbcon->connect($sql);
          				
