@@ -43,4 +43,8 @@ define('TEXT_SUPPLIERS_NAME_LOGIN', 'Suppliers name login:');
 define('TEXT_SUPPLIERS_PASSWORD', 'Suppliers password:');
 define('TEXT_DELETE_INTRO', 'Do you really want to delete this supplier?');
 define('TEXT_DELETE_IMAGE', 'Delete This Supplier');
+define('TEXT_SUPPLIERS_TELEPHONE', 'Suppliers telephone');
+define('TEXT_SUPPLIERS_ADDRESS', 'Suppliers address');
+define('TEXT_SUPPLIERS_LONGITUDE', 'Suppliers longitude');
+define('TEXT_SUPPLIERS_LATITUDE', 'Suppliers latitude');
 ?>

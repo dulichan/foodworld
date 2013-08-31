@@ -305,6 +305,10 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
       $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_GROUP_ID . '<br>' . tep_draw_input_field('suppliers_group_id', $mInfo->suppliers_group_id));
       $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_IMAGE . '<br>' . tep_draw_file_field('suppliers_image') . '<br>' . $mInfo->suppliers_image);
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PERCENTAGE . '<br>' . tep_draw_input_field('suppliers_percentage', $mInfo->suppliers_percentage));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_TELEPHONE . '<br>' . tep_draw_input_field('suppliers_telephone', $mInfo->suppliers_percentage));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_ADDRESS . '<br>' . tep_draw_input_field('suppliers_address', $mInfo->suppliers_percentage));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LONGITUDE . '<br>' . tep_draw_input_field('suppliers_longitude', $mInfo->suppliers_percentage));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LATITUDE . '<br>' . tep_draw_input_field('suppliers_latitude', $mInfo->suppliers_percentage));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_NAME_LOGIN . '<br>' . tep_draw_input_field('suppliers_name_login', $mInfo->suppliers_name));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PASSWORD . '(blank to not change) <br>' . tep_draw_password_field('suppliers_password'));
 	  
