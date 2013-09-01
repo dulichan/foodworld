@@ -4,7 +4,7 @@
 		$name =  $_GET['name'];
 		$email = $_GET['email'];
 		// specify the REST web service to interact with 
-		$url = 'http://localhost/sugarcrm/service/v2/rest.php'; 
+		$url = 'http://192.168.2.126/sugar/service/v2/rest.php'; 
 		// Open a curl session for making the call 
 		$curl = curl_init($url); 
 		// Tell curl to use HTTP POST 
@@ -16,7 +16,7 @@
 		$parameters = array(
 			'user_auth' => array(
 		    		'user_name' => 'admin', 
-		    		'password' => md5('password'), 
+		    		'password' => md5('admin'), 
 			),
 		);
 		$json = json_encode($parameters); 
@@ -76,7 +76,7 @@
 		$result = json_decode($response,true); 
 		// Get the newly created record id
 		$leadId = $result['id'];
-		$con=mysqli_connect("127.0.0.1:3306","root","","sugarcrm");
+		$con=mysqli_connect("192.168.2.126","root","","sugarcrm");
 		if (!mysqli_query($con,"INSERT INTO `email_addr_bean_rel` (`id`, `email_address_id`, `bean_id`, `bean_module`, `primary_address`, `reply_to_address`, `date_created`, `date_modified`, `deleted`) VALUES ('426f0989-1866-184a-f81b-". rand(5, 15)."', '".$emailAddresses['ids'][0] ."', '".$leadId."', 'Leads', 1, 0, '2013-08-31 18:45:08', '2013-08-31 18:45:08', 0);"))
 		  {
 		  die('Error: ' . mysqli_error($con));

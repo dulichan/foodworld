@@ -80,6 +80,15 @@ start supplier page imports
 								  $('.supdatafetch').html(data);
 							  }
 						  });
+						  $('#chrisButton').click(function(){
+								var name = $("#chrisName input").val();
+								var email = $("#chrisEmail input").val();
+								$.get('newsletter.php?'+'email='+email+'&name='+name, function(data){
+									 alert("Subscription success");
+									 $("#chrisName input").val("");
+									 $("#chrisEmail input").val("");
+								});//}
+						   });
 					  });
 				  
 					  function reloadfunctions(){
