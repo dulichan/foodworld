@@ -54,7 +54,28 @@
                   '  <div class="ui-widget-content infoBoxContents">' . 
                   '    ' . tep_draw_form('currencies', tep_href_link(basename($PHP_SELF), '', $request_type, false), 'get') .
                   '    ' . tep_draw_pull_down_menu('currency', $currencies_array, $currency, 'onchange="this.form.submit();" style="width: 100%"') . $hidden_get_variables . tep_hide_session_id() . '</form>' .
-                  '  </div>' .
+                  '  </div>'.
+				  '<div class="ui-widget-header infoBoxHeading">' . MODULE_BOXES_NEWS_LETTER . '</div>' .
+                  '  <div class="ui-widget-content infoBoxContents">' . 
+					
+				  '<table border="0" width="100%" cellspacing="0" cellpadding="2">
+      <tr>
+        <td class="fieldKey">Name</td>
+      </tr>
+	  <tr>
+	  <td class="fieldValue"><input type="text" id="nl_name"/></td>
+	  </tr>
+      <tr>
+        <td class="fieldKey">Email</td>
+      </tr>
+	  <tr>
+	  <td class="fieldValue"><input type="text" id="nl_email"/></td>
+	  </tr>
+	  <tr>
+	  <td><input type="submit" value="submit"/></td>
+	  </tr>
+    </table>'.					
+                  '  </div>'.
                   '</div>';
 
           $oscTemplate->addBlock($data, $this->group);
