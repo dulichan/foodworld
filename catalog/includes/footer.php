@@ -22,8 +22,8 @@
 ?>
 
 
-<div class="grid_4 push_2" style="text-align: center; padding-bottom: 20px;">
-    <p align="right"><?php echo tep_display_banner('static', $banner); ?>    </p>
+<div class="grid_4 push_2" style="text-align: left; padding-bottom: 20px; margin-left: 40px;">
+    <p align="left"><?php echo tep_display_banner('static', $banner); ?>    </p>
 </div>
 
 <?php
@@ -32,20 +32,20 @@
 
 
 <?php
-if ($banner = tep_banner_exists('dynamic', '20x0')) {
+if ($banner = tep_banner_exists('dynamic', '30x0')) {
 ?>
-    <div class="grid_4 push_2" style="text-align: center; padding-bottom: 20px;">
-        <p align="left">  <?php echo tep_display_banner('static', $banner); ?>  </p>
+    <div class="grid_4 push_2" style="text-align: center; padding-bottom: 20px; margin-left: 40px;">
+        <p align="center">  <?php echo tep_display_banner('static', $banner); ?>  </p>
 </div>
 <?php
 }
 ?>
 
 <?php
-if ($banner = tep_banner_exists('dynamic', '30x0')) {
+if ($banner = tep_banner_exists('dynamic', '50x0')) {
     ?>
-    <div class="grid_4 push_2" style="text-align: center; padding-bottom: 20px;">
-        <p align="left">  <?php echo tep_display_banner('static', $banner); ?>  </p>
+    <div class="grid_4 push_2" style="text-align: right; padding-bottom: 20px; margin-left: 45px;">
+        <p align="right">  <?php echo tep_display_banner('static', $banner); ?>  </p>
     </div>
 <?php
   }

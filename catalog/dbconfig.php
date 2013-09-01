@@ -1,10 +1,10 @@
 <?php
 //Enter Your Database Server Name
-define("DBSERVER", "127.0.0.1");
+define("DBSERVER", "localhost");
 //Enter Database User Name
 define("USER", "root");
 //Enter Database Password
-define("PASSWORD", "");
+define("PASSWORD", "123");
 //Enter Database Name
 define("DB", "oscommerce");
 ?>
