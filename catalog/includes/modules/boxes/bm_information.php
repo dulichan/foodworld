@@ -40,6 +40,8 @@
               '    <a href="' . tep_href_link(FILENAME_PRIVACY) . '">' . MODULE_BOXES_INFORMATION_BOX_PRIVACY . '</a><br />' .
               '    <a href="' . tep_href_link(FILENAME_CONDITIONS) . '">' . MODULE_BOXES_INFORMATION_BOX_CONDITIONS . '</a><br />' .
               '    <a href="' . tep_href_link(FILENAME_CONTACT_US) . '">' . MODULE_BOXES_INFORMATION_BOX_CONTACT . '</a>' .
+			  '    </br><a href="foodlink.php">Foody Link</a>' .
+			  '    </br><a href="http://www.youtube.com/channel/SBRfJij-jGUx8"><img style="width: 50px;" src="youtube.png"/></a><a href="http://www.facebook.com/foodworldlk"><img style="width: 50px;" src="facebook.png"/></a>' .
               '  </div>' .
               '</div>';
 

@@ -63,19 +63,20 @@
         <td class="fieldKey">Name</td>
       </tr>
 	  <tr>
-	  <td class="fieldValue"><input type="text" id="nl_name"/></td>
+	  <td id="chrisName" class="fieldValue"><input type="text" id="nl_name"/></td>
 	  </tr>
       <tr>
         <td class="fieldKey">Email</td>
       </tr>
 	  <tr>
-	  <td class="fieldValue"><input type="text" id="nl_email"/></td>
+	  <td id="chrisEmail" class="fieldValue"><input type="text" id="nl_email"/></td>
 	  </tr>
 	  <tr>
-	  <td><input type="submit" value="submit"/></td>
+	  <td><input id="chrisButton" type="submit" value="submit"/></td>
 	  </tr>
     </table>'.					
-                  '  </div>'.
+                  '  
+				   </div>'.
                   '</div>';
 
           $oscTemplate->addBlock($data, $this->group);
