@@ -80,14 +80,12 @@ start supplier page imports
 								  $('.supdatafetch').html(data);
 							  }
 						  });
-<<<<<<< HEAD
 						   $.post('view/fetchphidata.php?id=<?php echo $supplier_id;?>', function(data){
 							//alert("fetchsupdata");
 							  if(data){
 								  $('.phifetch').html(data);
 							  }
 						  });
-=======
 						  $('#chrisButton').click(function(){
 								var name = $("#chrisName input").val();
 								var email = $("#chrisEmail input").val();
@@ -97,7 +95,6 @@ start supplier page imports
 									 $("#chrisEmail input").val("");
 								});//}
 						   });
->>>>>>> 0db2b883211691ea3e5c8a4d0479c9f323552634
 					  });
 				  
 					  function reloadfunctions(){
