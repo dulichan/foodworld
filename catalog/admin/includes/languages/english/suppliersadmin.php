@@ -47,4 +47,7 @@ define('TEXT_SUPPLIERS_TELEPHONE', 'Suppliers telephone');
 define('TEXT_SUPPLIERS_ADDRESS', 'Suppliers address');
 define('TEXT_SUPPLIERS_LONGITUDE', 'Suppliers longitude');
 define('TEXT_SUPPLIERS_LATITUDE', 'Suppliers latitude');
+define('TEXT_SUPPLIERS_PHINUMBER', 'Suppliers PHI number');
+define('TEXT_SUPPLIERS_PHI_FROM', 'Suppliers PHI valid from');
+define('TEXT_SUPPLIERS_TO', 'Suppliers PHI valid till');
 ?>

@@ -28,7 +28,9 @@
 		$suppliers_address = tep_db_prepare_input($HTTP_POST_VARS['suppliers_address']);		
 		$suppliers_longitude = tep_db_prepare_input($HTTP_POST_VARS['suppliers_longitude']);
 		$suppliers_latitude = tep_db_prepare_input($HTTP_POST_VARS['suppliers_latitude']);
-		
+		$suppliers_phinumber = tep_db_prepare_input($HTTP_POST_VARS['suppliers_phinumber']);
+		$suppliers_phi_from = tep_db_prepare_input($HTTP_POST_VARS['suppliers_phi_from']);
+		$suppliers_phi_to = tep_db_prepare_input($HTTP_POST_VARS['suppliers_phi_to']);
         $sql_data_array = array('suppliers_group_name' => $suppliers_group_name,
                                 'suppliers_group_id' => $suppliers_group_id,
 								'suppliers_percentage' => $suppliers_percentage,
@@ -36,7 +38,10 @@
 								'suppliers_telephone' => $suppliers_telephone,
 								'suppliers_address' => $suppliers_address,
 								'suppliers_longtitude' => $suppliers_longitude,
-								'suppliers_latitude' => $suppliers_latitude);
+								'suppliers_latitude' => $suppliers_latitude,
+								'suppliers_phinumber' => $suppliers_phinumber,
+								'suppliers_phi_from' => $suppliers_phi_from,
+								'suppliers_phi_to' => $suppliers_phi_to);
 
 		$selected_catids = $HTTP_POST_VARS['categories'];
         if ($action == 'insert') {
@@ -296,6 +301,9 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
 	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_ADDRESS . '<br>' . tep_draw_input_field('suppliers_address', $mInfo->suppliers_address));
 	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LONGITUDE . '<br>' . tep_draw_input_field('suppliers_longitude', $mInfo->suppliers_longitude));
 	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_LATITUDE . '<br>' . tep_draw_input_field('suppliers_latitude', $mInfo->suppliers_latitude));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PHINUMBER . '<br>' . tep_draw_input_field('suppliers_phinumber', $mInfo->suppliers_latitude));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PHI_FROM . '<br>' . tep_draw_input_field('suppliers_phi_from', $mInfo->suppliers_latitude));
+	$contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_TO . '<br>' . tep_draw_input_field('suppliers_phi_to', $mInfo->suppliers_latitude));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_NAME_LOGIN . '<br>' . tep_draw_input_field('suppliers_name_login'));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_PASSWORD . '<br>' . tep_draw_password_field('suppliers_password'));
 	  $contents[] = array('text' => '<br>' . TEXT_SUPPLIERS_CATEGORIES . '<br>' . tep_draw_mselect_menu('categories[]', $categories, $categories_selected));

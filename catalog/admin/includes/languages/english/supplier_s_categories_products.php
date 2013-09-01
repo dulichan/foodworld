@@ -84,7 +84,9 @@ define('TEXT_PRODUCTS_URL_WITHOUT_HTTP', '<small>(without http://)</small>');
 define('TEXT_PRODUCTS_PRICE_NET', 'Products Price (Net):');
 define('TEXT_PRODUCTS_PRICE_GROSS', 'Products Price (Gross):');
 define('TEXT_PRODUCTS_WEIGHT', 'Products Weight:');
-
+define('TEXT_PRODUCTS_ING1', 'Product Ingredients 1:');
+define('TEXT_PRODUCTS_ING2', 'Product Ingredients 2:');
+define('TEXT_PRODUCTS_ORIGIN', 'Product Origin:');
 define('EMPTY_CATEGORY', 'Empty Category');
 
 define('TEXT_HOW_TO_COPY', 'Copy Method:');
