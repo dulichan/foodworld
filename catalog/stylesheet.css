@@ -13,6 +13,48 @@
 all floats get cleared (by Ravindu)
 */
 
+/* tooltip base: Do not alter */
+.tooltip, .tooltip:hover{position:relative;}
+.tooltip .Tcon{visibility:hidden;position:absolute;}
+.tooltip:hover .Tcon{visibility:visible;}
+ 
+/* tooltip positioning */
+.tooltip .Tcon{
+  left:-350px;
+  bottom:30px;
+}
+.tooltip:hover .Tcon{
+  left:0;
+  bottom:30px;
+}
+ 
+/* tooltip styling */
+.tooltip, .tooltip a, .tooltip:hover{text-decoration:none;}
+.tooltip .Tcon{
+  width:300px;
+  padding:20px;
+  line-height:16px;
+  background:#000;
+  opacity: 0.8;
+  border:2px solid #FFF;  color:#EEE;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius:2px;
+  -moz-box-shadow: 0px 0px 8px 4px #666;
+  -webkit-box-shadow: 0px 0px 8px 4px #666;
+  box-shadow: 0px 0px 8px 4px #666;
+}
+.tooltip .Tcon, .tooltip:hover .Tcon{
+  -webkit-transition: all 0.6s ease;
+  -moz-transition:    all 0.6s ease;
+  -o-transition:      all 0.6s ease;
+}
+.tooltip .Tcon strong{line-height:30px; font-size:16px;}
+.tooltip .Tcon a{text-decoration:underline}
+ 
+/* anchor styling */
+.tooltip .Tanc{cursor:pointer;}
+
 .clear{
 	clear:both;
 	}

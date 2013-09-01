@@ -35,11 +35,29 @@
   require(DIR_WS_INCLUDES . 'template_top.php');
 
   if ($category_depth == 'nested') {
-    $category_query = tep_db_query("select cd.categories_name, c.categories_image from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where c.categories_id = '" . (int)$current_category_id . "' and cd.categories_id = '" . (int)$current_category_id . "' and cd.language_id = '" . (int)$languages_id . "'");
+    $category_query = tep_db_query("select cd.categories_name, c.categories_image,c.categories_id from " . TABLE_CATEGORIES . " c, " . TABLE_CATEGORIES_DESCRIPTION . " cd where c.categories_id = '" . (int)$current_category_id . "' and cd.categories_id = '" . (int)$current_category_id . "' and cd.language_id = '" . (int)$languages_id . "'");	
+
     $category = tep_db_fetch_array($category_query);
+	
+	$cat_sup_query=tep_db_query("select * from categories_to_suppliers where categories_id='".$category['categories_id']."'");	
+	$sup_result=tep_db_fetch_array($cat_sup_query);
+	/*echo "<script type='text/javascript'>alert(".$sup_result['suppliers_id'].");</script>";*/
+	$supplier_id=$sup_result['suppliers_id'];
 ?>
 
-<h1><?php echo $category['categories_name']; ?></h1>
+<h1>
+<?php if(!empty($supplier_id)){
+	echo "<a href='homepage.php?id={$supplier_id}' class='tooltip 1'>
+ 			 <span class='Tanc'>{$category['categories_name']}</span>
+ 			 <span class='Tcon'>
+     						supplier profile
+  			</span>
+		</a>";
+	 }else{ 	 
+	 echo "{$category['categories_name']}";
+	 } ?>
+
+</h1>
 
 <div class="contentContainer">
   <div class="contentText">

@@ -5,15 +5,28 @@
 class reviewdatahandle {
 	
 	private $dbcon;
-	private $supid;
+
 	
- 		public function __construct($supid) {
+	
+	private static $instance;
+	 
+   
+ 	
+	public static function getInstance() {
+
+    if(!self::$instance) {
+      self::$instance = new self();
+    }
+
+    return self::$instance;
+
+ 	 } 
+	
+ 		private function __construct() {
       		 $this->dbcon = dbconnection::getInstance();
-			 $this->supid=$supid;			
+				
  		} 
-		/*public function __construct() {
-      		 $this->dbcon = dbconnection::getInstance();			
- 		}*/    
+  
         function fetchdata(){
 			
             			      					  
@@ -25,9 +38,9 @@ class reviewdatahandle {
                   
         }
 		
-		function fetchSupplier(){
+		function fetchSupplier($supplier_id){
             			      					  
-           $sql = "SELECT * FROM suppliers where suppliers_id='$this->supid' ";
+           $sql = "SELECT * FROM suppliers where suppliers_id='$supplier_id' ";
            
            $result = $this->dbcon->connect($sql);
          				
@@ -38,6 +51,19 @@ class reviewdatahandle {
            return $result;
 			
 			}
+		function fetchCustomer($customer_id){
+            			      					  
+           $sql = "select customers_firstname from customers where customers_id='$customer_id'";
+           
+           $result = $this->dbcon->connect($sql);
+         				
+			if(!$result){
+				die("mysql query failed: ".mysql_error());
+				}	
+					       
+           return $result;
+			
+			}	
 		
 }
 

@@ -1,6 +1,6 @@
 <?php
   include 'dbconnection.php';
-  include 'Model/reviewdatahandle.php';
+ // include 'Model/reviewdatahandle.php';
   require('includes/application_top.php'); 
   require(DIR_WS_LANGUAGES . $language . '/' . FILENAME_PRODUCT_REVIEWS_INFO);
   require(DIR_WS_INCLUDES . 'template_top.php');
@@ -21,7 +21,7 @@
 
 
 	$.ajax({                                      
-      url: 'view/fetchmapdata.php',    //the script to call to get data          
+      url: 'view/fetchmapdata.php?id=<?php echo $supplier_id;?>',    //the script to call to get data          
       data: "",                        //you can insert url argumnets here to pass to api.php
                                        //for example "id=5&parent=6"
       dataType: 'json',                //data format      
@@ -33,6 +33,11 @@
         var map_options = {
           center: latlng,
           zoom: 8,
+		   scrollwheel: false,
+    navigationControl: false,
+    mapTypeControl: false,
+    scaleControl: false,
+    draggable: false,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(map_canvas, map_options)
@@ -66,7 +71,12 @@
       <div class="basic" data-average="12" data-id="1"></div>
       Comment:-
       <textarea class="commentbox"></textarea>
-      <input type="hidden" class="usrid" value="1"/>
+      <?php   		
+   		if (tep_session_is_registered('customer_first_name') && tep_session_is_registered('customer_id')) {
+      			$customer_id=tep_output_string_protected($customer_id);
+				echo "<input type='hidden' class='usrid' value='$customer_id'/>";
+		}?>
+      
       <input type="button" value="Submit" class="submitval"/>
     </div>
   </div>

@@ -52,7 +52,9 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
 <link rel="stylesheet" type="text/css" href="ext/960gs/<?php echo ((stripos(HTML_PARAMS, 'dir="rtl"') !== false) ? 'rtl_' : ''); ?>960_24_col.css" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 <?php echo $oscTemplate->getBlocks('header_tags'); ?>
-
+<?php
+ $supplier_id=$_GET['id'];
+?>
 <!--
 start supplier page imports
 -->
@@ -72,7 +74,7 @@ start supplier page imports
 								  reloadfunctions();
 							  }
 						  });//}
-						    $.post('view/fetchsupdata.php', function(data){
+						    $.post('view/fetchsupdata.php?id=<?php echo $supplier_id;?>', function(data){
 							//alert("fetchsupdata");
 							  if(data){
 								  $('.supdatafetch').html(data);
