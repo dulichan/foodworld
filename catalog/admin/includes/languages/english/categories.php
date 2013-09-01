@@ -105,6 +105,8 @@ define('ERROR_CANNOT_MOVE_CATEGORY_TO_PARENT', 'Error: Category cannot be moved 
 // Beginn Suppliers
 define('TEXT_SUPPLIER', 'Supplier:');
 define('TEXT_SUPPLIERS_GROUP', 'Suppliers Price:');
+define('TEXT_PRODUCTS_ING1', 'Product Ingredients 1:');
+define('TEXT_PRODUCTS_ING2', 'Product Ingredients 2:');
 // End Suppliers
 
 ?>

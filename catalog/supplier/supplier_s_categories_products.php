@@ -253,7 +253,12 @@
 
             tep_db_perform(TABLE_PRODUCTS, $sql_data_array);
             $products_id = tep_db_insert_id();
+			$product_origin = tep_db_prepare_input($HTTP_POST_VARS['product_origin']);
+         
+		 $product_ing1 = tep_db_prepare_input($HTTP_POST_VARS['product_ing1']);
+		 $product_ing2 = tep_db_prepare_input($HTTP_POST_VARS['product_ing2']);
 
+		  tep_db_query("insert into " . TABLE_PRODUCTS_DETAILS . " (product_id, product_origin,product_ing1,product_ing2) values ('" . (int)$products_id . "', '" . $product_origin . "', '" . $product_ing1 . "', '" . $product_ing2 . "')");
             tep_db_query("insert into " . TABLE_PRODUCTS_TO_CATEGORIES . " (products_id, categories_id) values ('" . (int)$products_id . "', '" . (int)$current_category_id . "')");
           } elseif ($action == 'update_product') {
             $update_sql_data = array('products_last_modified' => 'now()');
@@ -542,6 +547,27 @@ function updateNet() {
             <td class="main"><?php echo TEXT_PRODUCTS_PRICE_GROSS; ?></td>
             <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_price_gross', $pInfo->products_price, 'OnKeyUp="updateNet()"'); ?></td>
           </tr>
+				<tr>
+	                    <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+	                </tr>
+	                <tr>
+	              <td class="main"><?php echo TEXT_PRODUCTS_ORIGIN; ?></td>
+	              <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('product_origin', $pInfo->product_origin); ?></td>
+	          </tr>
+				 <tr>
+				                    <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+				                </tr>
+				                <tr>
+				                    <td class="main"><?php echo TEXT_PRODUCTS_ING1; ?></td>
+				                    <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('product_ing1', $pInfo->product_ing1); ?></td>
+				                </tr>
+				                <tr>
+				                    <td colspan="2"><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+				                </tr>
+				                <tr>
+				                    <td class="main"><?php echo TEXT_PRODUCTS_ING2; ?></td>
+				                    <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('product_ing2', $pInfo->product_ing2); ?></td>
+				                </tr>
 	<tr bgcolor="#ebebff">
             <td class="main">Price for ADMIN: </td>
             <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_price_myself', $pInfo->products_price_myself, 'disabled'); ?></td>
