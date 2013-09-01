@@ -1,8 +1,8 @@
 <?php
 	echo print($_GET['email']);
  	if (isset($_GET['email'])){
-		//$name =  $_GET['name'];
-		//$email = $_GET['email'];
+		$name =  $_GET['name'];
+		$email = $_GET['email'];
 		// specify the REST web service to interact with 
 		$url = 'http://localhost/sugarcrm/service/v2/rest.php'; 
 		// Open a curl session for making the call 
@@ -37,10 +37,10 @@
 			'session' => $sessionId,
 			'module' => 'EmailAddresses',
 			'name_value_lists' => array(
-			array(
-			array('name' => 'email_address', 'value' => 'foo@bar.com'),
-			array('name' => 'email_address_caps', 'value' => 'FOO@BAR.COM'),
-			),
+				array(
+				array('name' => 'email_address', 'value' => $email),
+				array('name' => 'email_address_caps', 'value' => strtoupper($email)),
+				),
 			),
 		);
 		$json = json_encode($parameters);
@@ -64,7 +64,7 @@
 		    'session' => $sessionId, 
 		    'module' => 'Leads', 
 		    'name_value_list' => array( 
-		        array('name' => 'first_name', 'value' => 'Baby'),
+		        array('name' => 'first_name', 'value' => $name),
 		        ), 
 		    ); 
 		$json = json_encode($parameters); 
