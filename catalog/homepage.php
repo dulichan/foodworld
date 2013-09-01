@@ -27,7 +27,7 @@
       dataType: 'json',                //data format      
       success: function(data)          //on recieve of reply
       {
-		/*alert(data[6]);*/
+		/*alert(data[6]);*/		
         var map_canvas = document.getElementById('map_canvas');
 		var latlng=new google.maps.LatLng(data[12],data[11]);
         var map_options = {
@@ -80,6 +80,8 @@
       <input type="button" value="Submit" class="submitval"/>
     </div>
   </div>
+  <br/>
+  <div class="phifetch"></div>
   </div>
 <!--</div>-->
 <!-- bodyContent //-->

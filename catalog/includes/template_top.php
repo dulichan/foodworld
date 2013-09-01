@@ -80,6 +80,12 @@ start supplier page imports
 								  $('.supdatafetch').html(data);
 							  }
 						  });
+						   $.post('view/fetchphidata.php?id=<?php echo $supplier_id;?>', function(data){
+							//alert("fetchsupdata");
+							  if(data){
+								  $('.phifetch').html(data);
+							  }
+						  });
 					  });
 				  
 					  function reloadfunctions(){
